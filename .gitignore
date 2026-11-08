@@ -1,0 +1,68 @@
+# Dependencies, caches, generated builds and test output
+node_modules/
+.npm-cache/
+.cache/
+dist/
+.build/
+output/
+coverage/
+playwright-report/
+test-results/
+*.log
+*.tsbuildinfo
+
+# Environment files may contain secrets. Only commit empty templates.
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.local
+*.local.json
+.npmrc
+.yarnrc.yml
+.netrc
+_netrc
+.pypirc
+.git-credentials
+
+# Credentials, signing keys and local cloud / deployment metadata
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_ed25519
+credentials*.json
+service-account*.json
+service_account*.json
+*-firebase-adminsdk-*.json
+.vercel/
+.netlify/
+.aws/
+.azure/
+.ssh/
+.gcloud/
+.docker/
+.codex/
+.codex-finalizer/
+
+# Local data, backups and machine-specific asset inputs
+private/
+secrets/
+backups/
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.bak
+scripts/art-inputs.local.json
+.DS_Store
+Thumbs.db
+
+# Local teaching material and generated walkthroughs; not game runtime assets
+/MLN131 - Giao trinh CNXHKH.pdf
+/DAP_AN_*.md
