@@ -21,7 +21,7 @@ Ngày ghi nhận: 08/11/2026. Đây là kết quả kỹ thuật thực tế, kh
 | Nhạc | PASS phát cả Synthwave 4k và Contemplation sau thao tác bật, không báo lỗi autoplay; chỉnh volume giữ nguyên đối tượng phát và vị trí bài |
 | Giảm chuyển động | PASS, không thay đổi tiến độ |
 | Lỗi chạy hoặc tài nguyên HTTP lỗi trong lượt browser | 0 |
-| Lượt tải đầu trang chủ | 1.861.301 byte, khoảng 1,86 MB ở cả ba kích thước, với các header bảo mật production |
+| Lượt tải đầu trang chủ | 1.861.721 byte, khoảng 1,86 MB ở cả ba kích thước, với các header bảo mật production |
 
 `output/qa/browser-report.json` là báo cáo chi tiết của lượt production cuối, kèm 13 ảnh giao diện. Không có đường debug vượt khóa trong bản phát hành; lượt chơi đầy đủ đi bằng giao diện. Fixture chỉ được dùng để chuẩn bị trạng thái cho ảnh phòng 3 và kiểm tra riêng kết thúc thường.
 
@@ -40,6 +40,13 @@ Ngày ghi nhận: 08/11/2026. Đây là kết quả kỹ thuật thực tế, kh
 - Có liên kết tới hướng dẫn ngay dưới các nút bắt đầu; sáu bước mô tả đúng thao tác trong game, kèm câu hỏi thường gặp và đường vào demo.
 - PASS kiểm tra ở 1366px và 360px: đủ sáu bước, liên kết cuộn đúng mục, mở trợ giúp bằng bàn phím, vào demo và không thay đổi tiến độ chính; không tràn ngang hoặc có lỗi JavaScript.
 - Lint và production build đạt. Báo cáo: `output/qa/home-help-report.json`; ảnh: `output/qa/home-help-1366.png` và `output/qa/home-help-360.png`. Điện thoại được mô phỏng bằng Chromium.
+
+## Tăng cỡ chữ
+
+- Nội dung đọc chính 16–18px, nút và lựa chọn thao tác tối thiểu 16px, nhãn vai 12px. Giữ cỡ chữ nội dung trên điện thoại thay vì thu nhỏ để ép vừa.
+- Điều chỉnh xuống dòng cho nút, thẻ, thanh vai và panel; dùng thẻ bản đồ một cột, nhãn chương hai cột và danh sách điểm khám phá có chữ lớn trên điện thoại. Tên điểm trong cảnh nhỏ được đọc qua danh sách tương đương để tránh chồng lên nhau.
+- Lint và production build đạt. Đã chạy lại toàn bộ lượt chơi trình duyệt ở 1366px, 768px và 360px: 13 ảnh, không tràn ngang, lỗi JavaScript, lỗi tải tài nguyên hoặc vi phạm CSP ngoài ý muốn. Hướng dẫn trang chủ và đường vào demo cũng đạt ở 1366px và 360px.
+- Kiểm tra trực quan phòng 3 trên desktop, panel chứng cứ/hội đồng trên điện thoại mô phỏng và hướng dẫn trang chủ: chữ xuống dòng, không bị cắt ở các ảnh đã kiểm tra.
 
 ## Rà soát bảo mật ngày 09/11/2026
 

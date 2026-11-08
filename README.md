@@ -36,7 +36,7 @@ Không mở `dist/index.html` trực tiếp bằng `file:`. Bản build đã có
 - Hai cấp gợi ý mỗi bước, thử sai không mất tiến độ, lưu V2 riêng và reset có xác nhận.
 - Sáu tranh cảnh, tranh nhóm trang chủ, 20 biểu cảm và 28 minh họa chứng cứ đóng gói thành atlas; chữ và lớp chuyển động tách khỏi tranh.
 - Hai bản ambient miễn phí trên OpenGameArt (CC0), dài khoảng 2 phút 38 giây và 2 phút; tám hiệu ứng gốc. Nhạc được cân nhẹ, fade đầu/cuối; mặc định tắt, chỉnh âm lượng không tua lại nhạc, dừng khi tab ẩn.
-- Chữ nội dung chơi 16px, giảm chuyển động, thao tác chạm/chuột/bàn phím; mobile dùng panel đồ vật từ đáy.
+- Chữ đọc 16–18px, nút thao tác 16px, giảm chuyển động, thao tác chạm/chuột/bàn phím; mobile dùng panel đồ vật từ đáy và bố cục rộng hơn cho chữ.
 - Demo độc lập tại `/demo`, không mount provider hoặc đọc/ghi tiến độ chính.
 
 ## Cách chơi
