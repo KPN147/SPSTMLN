@@ -29,7 +29,7 @@ describe('Hành trình điều tra', () => {
     try {
       window.history.replaceState({}, '', '/room/1'); const view = render(<App/>);
       const hotspot = screen.getByRole('button', { name: /^1\. Kệ bản thảo/ }); hotspot.focus(); fireEvent.click(hotspot);
-      expect(screen.getByRole('dialog')).toBeVisible(); fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: /An: Đối chiếu & lưu/ }));
+      expect(screen.getByRole('dialog')).toBeVisible(); fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: /Ghi nhận chứng cứ · An/ }));
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument(); expect(document.body.style.overflow).toBe(''); expect(document.activeElement).toBe(hotspot);
       expect(JSON.parse(localStorage.getItem(SAVE_KEY_V2)!).chapters[1].discovered).toContain('c1-e1'); view.unmount();
     } finally { Object.defineProperty(window, 'innerWidth', { configurable: true, writable: true, value: width }); }
@@ -39,14 +39,14 @@ describe('Hành trình điều tra', () => {
     write.mockImplementation(function (this: Storage, key, value) { if (key === SAVE_KEY_V2) throw Error('Storage blocked'); if (original) original.call(this, key, value); });
     try {
       window.history.replaceState({}, '', '/room/1'); render(<App/>);
-      expect(screen.getByRole('status')).toHaveTextContent('Không thể lưu'); fireEvent.click(screen.getByRole('button', { name: /^1\. Kệ bản thảo/ })); fireEvent.click(screen.getByRole('button', { name: /An: Đối chiếu & lưu/ }));
+      expect(screen.getByRole('status')).toHaveTextContent('Không thể lưu'); fireEvent.click(screen.getByRole('button', { name: /^1\. Kệ bản thảo/ })); fireEvent.click(screen.getByRole('button', { name: /Ghi nhận chứng cứ · An/ }));
       expect(screen.getByText('Đã đưa vào Sổ chung')).toBeVisible();
     } finally { write.mockRestore(); }
   });
   it('giữ lựa chọn đang làm khi mở Sổ chung, tải lại và đổi vai', () => {
     window.history.replaceState({}, '', '/room/1'); let view = render(<App/>);
     fireEvent.click(screen.getByRole('button', { name: /^1\. Kệ bản thảo/ }));
-    fireEvent.click(screen.getByRole('button', { name: /An: Đối chiếu & lưu/ }));
+    fireEvent.click(screen.getByRole('button', { name: /Ghi nhận chứng cứ · An/ }));
     fireEvent.click(screen.getByRole('button', { name: /01 Đưa bản thảo về đúng ngăn/ }));
     const task = chapters[0].investigations[0];
     let region = screen.getByRole('region', { name: task.title });
@@ -78,7 +78,7 @@ describe('Hành trình điều tra', () => {
       expect(screen.getByRole('heading', { name: c.name })).toBeVisible();
       for (const e of c.evidence.slice(0, 6)) {
         fireEvent.click(screen.getByRole('button', { name: new RegExp(`^${e.index + 1}\\. ${esc(c.hotspotNames[e.index])}`) }));
-        fireEvent.click(screen.getByRole('button', { name: /^(An: Đối chiếu & lưu|Minh: Kiểm tra & trích xuất|Vy: Điều tra & ghi nhận)/ }));
+        fireEvent.click(screen.getByRole('button', { name: /^Ghi nhận chứng cứ · / }));
       }
       for (const t of c.investigations) {
         fireEvent.click(within(screen.getByRole('group', { name: 'Các bước kiểm chứng' })).getByRole('button', { name: new RegExp(esc(t.title)) }));
@@ -91,7 +91,7 @@ describe('Hành trình điều tra', () => {
         expect(region.getByText(t.success)).toBeVisible();
       }
       fireEvent.click(screen.getByRole('button', { name: 'Kiểm tra phong thư' }));
-      fireEvent.click(screen.getByRole('button', { name: /Vy: Điều tra & ghi nhận/ }));
+      fireEvent.click(screen.getByRole('button', { name: /Ghi nhận chứng cứ · Vy/ }));
       fireEvent.click(screen.getByRole('button', { name: /Triệu tập hội đồng/ }));
       const dialog = screen.getByRole('dialog'); chooseCase(dialog, c.council);
       fireEvent.click(within(dialog).getByRole('button', { name: /Đề xuất với hội đồng/ }));

@@ -3,10 +3,10 @@ import { ArrowRight, BookOpen, Check, Compass, Fingerprint, Link2, MessageCircle
 
 const steps = [
   { title: 'Nhận vụ điều tra', icon: Compass, text: 'Mở Bản đồ, vào khu vực đang mở và đọc “Vấn đề cần làm rõ”. Đây là câu hỏi bạn cần tìm lời giải trong căn phòng.' },
-  { title: 'Ghi nhận chứng cứ', icon: Fingerprint, text: 'Chọn đồ vật được đánh số, đọc tài liệu rồi bấm hành động của nhân vật để đưa hồ sơ vào Sổ chung.', tip: 'Đọc xong, nhớ bấm nút ghi nhận.' },
+  { title: 'Ghi nhận 4 chứng cứ bắt buộc', icon: Fingerprint, text: 'Dùng “Việc cần làm tiếp theo” trong phòng để mở hồ sơ, đọc tài liệu rồi bấm “Ghi nhận chứng cứ”. Hai hồ sơ bổ trợ và phong thư là tùy chọn.', tip: 'Chỉ đọc chưa tính là thu thập.' },
   { title: 'Trao đổi cùng đồng đội', icon: MessageCircle, text: 'Chọn câu hỏi hoặc đối chiếu chứng cứ trong hội thoại. Đổi vai bằng chân dung; hành động chuyên môn cũng tự chuyển sang người phù hợp.' },
   { title: 'Hoàn thành 3 kiểm chứng', icon: Link2, text: 'Ở phần “Kiểm chứng hồ sơ”, chọn từng bước. Chọn một dữ kiện, chọn vị trí để gắn, rồi bấm kiểm tra hoặc chạy thử.', tip: 'Chọn thẻ trước → chọn vị trí sau.' },
-  { title: 'Đề xuất với hội đồng', icon: Users, text: 'Chọn kết luận, gắn các chứng cứ thực sự hỗ trợ và chọn phương án phục dựng. Đọc phản biện để biết phần cần sửa.', tip: 'Kết luận → Chứng cứ → Cách sửa.' },
+  { title: 'Đề xuất với hội đồng', icon: Users, text: 'Sau 3 kiểm chứng, chọn kết luận, đúng số hồ sơ liên quan và phương án sửa. Không chọn tất cả chứng cứ; thẻ thừa có thể khiến đề xuất bị từ chối.', tip: 'Kết luận → Chứng cứ → Cách sửa.' },
   { title: 'Phục dựng và đi tiếp', icon: Sparkles, text: 'Đề xuất được chấp nhận sẽ làm căn phòng sáng lại và mở khu vực tiếp theo. Phục dựng đủ bốn khu vực để vào Phòng Lõi.' },
 ];
 

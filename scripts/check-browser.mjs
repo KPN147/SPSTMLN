@@ -70,7 +70,7 @@ try {
     await page.getByRole('heading', { name: c.name, exact: true }).waitFor();
     for (const e of c.evidence.slice(0, 6)) {
       await page.getByRole('button', { name: new RegExp(`^${e.index + 1}\\. ${esc(c.hotspotNames[e.index])}`) }).click();
-      await page.getByRole('button', { name: /^(An: Đối chiếu & lưu|Minh: Kiểm tra & trích xuất|Vy: Điều tra & ghi nhận)/ }).click();
+      await page.getByRole('button', { name: /^Ghi nhận chứng cứ · / }).click();
     }
     for (const t of c.investigations) {
       await page.getByRole('group', { name: 'Các bước kiểm chứng' }).getByRole('button', { name: new RegExp(esc(t.title)) }).click();
@@ -82,7 +82,7 @@ try {
       await region.getByRole('button', { name: /^(Kiểm tra bản phục dựng|Chạy thử hệ thống|Khởi động đồng hồ)/ }).click();
       await region.getByText(t.success, { exact: true }).waitFor();
     }
-    await page.getByRole('button', { name: 'Kiểm tra phong thư', exact: true }).click(); await page.getByRole('button', { name: /Vy: Điều tra & ghi nhận/ }).click();
+    await page.getByRole('button', { name: 'Kiểm tra phong thư', exact: true }).click(); await page.getByRole('button', { name: /Ghi nhận chứng cứ · Vy/ }).click();
     await page.getByRole('button', { name: 'Triệu tập hội đồng', exact: true }).click();
     await chooseCase(page, page.getByRole('dialog'), c.council);
     await page.getByRole('button', { name: 'Ở lại tìm hồ sơ phụ' }).click();

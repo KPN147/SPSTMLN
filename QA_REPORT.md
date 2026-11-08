@@ -1,13 +1,13 @@
 # Kiểm tra bàn giao — Mật Mã Ký Ức — Hồ Sơ 2126 V2
 
-Ngày ghi nhận: 08/11/2026. Đây là kết quả kỹ thuật thực tế, không phải khảo sát hiệu quả học tập.
+Ghi nhận ban đầu: 08/11/2026; cập nhật gần nhất: 09/11/2026. Đây là kết quả kỹ thuật thực tế, không phải khảo sát hiệu quả học tập.
 
 ## Kết quả
 
 | Hạng mục | Kết quả |
 |---|---|
 | `npm run lint` | PASS, không lỗi/cảnh báo ở lần kiểm tra cuối |
-| `npm run test` | PASS, 89 bài trong 5 file |
+| `npm run test` | PASS, 92 bài trong 6 file |
 | `npm run build` | PASS, xuất `dist/` |
 | Chromium production | PASS, chơi qua bốn phòng và Phòng Lõi bằng giao diện |
 | 1366px / 768px / 360px | PASS, không tràn ngang |
@@ -21,7 +21,7 @@ Ngày ghi nhận: 08/11/2026. Đây là kết quả kỹ thuật thực tế, kh
 | Nhạc | PASS phát cả Synthwave 4k và Contemplation sau thao tác bật, không báo lỗi autoplay; chỉnh volume giữ nguyên đối tượng phát và vị trí bài |
 | Giảm chuyển động | PASS, không thay đổi tiến độ |
 | Lỗi chạy hoặc tài nguyên HTTP lỗi trong lượt browser | 0 |
-| Lượt tải đầu trang chủ | 1.861.721 byte, khoảng 1,86 MB ở cả ba kích thước, với các header bảo mật production |
+| Lượt tải đầu trang chủ | 1.863.610 byte, khoảng 1,86 MB ở cả ba kích thước, với các header bảo mật production |
 
 `output/qa/browser-report.json` là báo cáo chi tiết của lượt production cuối, kèm 13 ảnh giao diện. Không có đường debug vượt khóa trong bản phát hành; lượt chơi đầy đủ đi bằng giao diện. Fixture chỉ được dùng để chuẩn bị trạng thái cho ảnh phòng 3 và kiểm tra riêng kết thúc thường.
 
@@ -40,6 +40,14 @@ Ngày ghi nhận: 08/11/2026. Đây là kết quả kỹ thuật thực tế, kh
 - Có liên kết tới hướng dẫn ngay dưới các nút bắt đầu; sáu bước mô tả đúng thao tác trong game, kèm câu hỏi thường gặp và đường vào demo.
 - PASS kiểm tra ở 1366px và 360px: đủ sáu bước, liên kết cuộn đúng mục, mở trợ giúp bằng bàn phím, vào demo và không thay đổi tiến độ chính; không tràn ngang hoặc có lỗi JavaScript.
 - Lint và production build đạt. Báo cáo: `output/qa/home-help-report.json`; ảnh: `output/qa/home-help-1366.png` và `output/qa/home-help-360.png`. Điện thoại được mô phỏng bằng Chromium.
+
+## Chỉ dẫn qua phòng trong lúc chơi
+
+- Mỗi phòng có “Việc cần làm tiếp theo”: đếm riêng 4 chứng cứ bắt buộc, 3 kiểm chứng và trạng thái hội đồng. Nút dẫn tới đúng hồ sơ hoặc bước còn thiếu, không ép thứ tự khám phá. Nêu rõ 2 hồ sơ bổ trợ và thư là tùy chọn.
+- Nút thu thập thống nhất “Ghi nhận chứng cứ”; đọc tài liệu chưa tự tính là thu thập. Bước kiểm chứng báo dữ kiện chưa gắn hoặc một thẻ chưa khớp; có nút đi tiếp sau khi làm đúng. Hội đồng hiển thị số hồ sơ cần gắn, số đã chọn và cách bỏ thẻ thừa. Phục dựng thành công đi thẳng tới phòng kế tiếp.
+- Lint, 92 kiểm thử và production build đạt. Ba kiểm thử mới đi theo chỉ dẫn qua phòng chỉ với chứng cứ bắt buộc, thử thiếu/sai thẻ, tải lại ở trạng thái sẵn sàng và đề xuất sớm.
+- Lượt chơi Chromium đầy đủ đạt trên desktop; giao diện ở 1366px, 768px và 360px không tràn ngang, lỗi JavaScript hoặc lỗi tải tài nguyên. Thử thêm luồng hướng dẫn trên điện thoại mô phỏng: qua phòng 1 chỉ với 4 chứng cứ bắt buộc rồi đi thẳng vào phòng 2.
+- Báo cáo riêng: `output/qa/room-guide-report.json`; ảnh: `output/qa/room-guide-1366.png`, `output/qa/room-guide-360.png` và `output/qa/guide-collect-360.png`. Chưa có kết quả đo mức dễ hiểu với người chơi thật.
 
 ## Tăng cỡ chữ
 
