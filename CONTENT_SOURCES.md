@@ -1,6 +1,6 @@
 # Bảng nguồn học thuật
 
-## Cập nhật Hội đồng phục dựng V2
+## Cập nhật Mật Mã Ký Ức — Hồ Sơ 2126 V2
 
 Giữ đủ 16 mục tiêu học và trang nguồn trong bảng dưới. Các ID `rN-p1`, `rN-p2`, `rN-p3` nay mở sau ba bước kiểm chứng; `rN-p4` mở sau phiên hội đồng của chương N. Cơ chế trong bảng cũ là dạng tham chiếu V1, không mô tả luồng chơi V2.
 

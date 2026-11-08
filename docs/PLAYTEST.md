@@ -1,4 +1,4 @@
-# Phiếu chơi thử — Hội đồng phục dựng
+# Phiếu chơi thử — Mật Mã Ký Ức — Hồ Sơ 2126
 
 **Trạng thái: chưa tiến hành với sinh viên.** Không điền kết quả giả hoặc dùng thời gian tự động hóa làm thời gian người chơi.
 

@@ -23,4 +23,4 @@ export function CouncilProvider({ children }: { children: ReactNode }) {
   return <Context.Provider value={{ save, dispatch, notice, dismissNotice: () => setNotice('') }}>{children}</Context.Provider>;
 }
 // eslint-disable-next-line react-refresh/only-export-components
-export function useCouncil() { const context = useContext(Context); if (!context) throw Error('Thiếu Hội đồng phục dựng'); return context; }
+export function useCouncil() { const context = useContext(Context); if (!context) throw Error('Thiếu Mật Mã Ký Ức'); return context; }

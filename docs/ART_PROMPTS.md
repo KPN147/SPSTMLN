@@ -1,4 +1,4 @@
-# Bộ prompt hình ảnh — Hội đồng phục dựng
+# Bộ prompt hình ảnh — Mật Mã Ký Ức — Hồ Sơ 2126
 
 Các tài nguyên được sinh bằng công cụ tạo ảnh tích hợp, sau đó xuất WebP vào `public/art`. Bảng mẫu đầu tiên là ảnh tham chiếu phong cách/nhân vật cho các lần sinh tiếp. Mọi yêu cầu đều cấm typography, logo, watermark và giao diện gắn sẵn trong ảnh.
 

@@ -1,4 +1,4 @@
-# Kiểm tra bàn giao — Hội đồng phục dựng V2
+# Kiểm tra bàn giao — Mật Mã Ký Ức — Hồ Sơ 2126 V2
 
 Ngày ghi nhận: 08/11/2026. Đây là kết quả kỹ thuật thực tế, không phải khảo sát hiệu quả học tập.
 
@@ -47,6 +47,13 @@ Ngày ghi nhận: 08/11/2026. Đây là kết quả kỹ thuật thực tế, kh
 - Điều chỉnh xuống dòng cho nút, thẻ, thanh vai và panel; dùng thẻ bản đồ một cột, nhãn chương hai cột và danh sách điểm khám phá có chữ lớn trên điện thoại. Tên điểm trong cảnh nhỏ được đọc qua danh sách tương đương để tránh chồng lên nhau.
 - Lint và production build đạt. Đã chạy lại toàn bộ lượt chơi trình duyệt ở 1366px, 768px và 360px: 13 ảnh, không tràn ngang, lỗi JavaScript, lỗi tải tài nguyên hoặc vi phạm CSP ngoài ý muốn. Hướng dẫn trang chủ và đường vào demo cũng đạt ở 1366px và 360px.
 - Kiểm tra trực quan phòng 3 trên desktop, panel chứng cứ/hội đồng trên điện thoại mô phỏng và hướng dẫn trang chủ: chữ xuống dòng, không bị cắt ở các ảnh đã kiểm tra.
+
+## Đổi tên thành Mật Mã Ký Ức — Hồ Sơ 2126
+
+- Đồng bộ logo chữ, trang chủ, phụ đề, câu giới thiệu, tiêu đề tab theo trang, metadata chia sẻ, nút chia sẻ kết quả, thông báo hành trình và tài liệu dự án.
+- Lint, 89 kiểm thử và production build đạt. Kiểm tra trình duyệt ở 1366px, 768px và 360px: tên trang chủ, metadata, tiêu đề các route và dữ liệu gửi vào hộp chia sẻ đúng tên mới; không tràn ngang hoặc có lỗi JavaScript/CSP.
+- Bản lưu V2 trước khi đổi tên vẫn mở được kết quả và giữ nguyên ghi chú, không khởi tạo lại tiến độ. Chỉ đổi tên hiển thị, giữ các khóa lưu và ID nội dung.
+- Báo cáo: `output/qa/rename-report.json`; ảnh: `output/qa/rename-hero-1366.png`, `output/qa/rename-hero-768.png`, `output/qa/rename-hero-360.png`. Điện thoại được mô phỏng; chưa xác nhận bản deploy Vercel thực tế.
 
 ## Rà soát bảo mật ngày 09/11/2026
 

@@ -20,7 +20,7 @@ for (const track of tracks) {
   const duration = sourceDuration;
   if (!Number.isFinite(sourceDuration) || sourceDuration < track.start + duration - .1) throw Error(`Invalid source duration: ${track.filename}`);
   const file = path.join(output, track.output);
-  execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', String(track.start), '-i', source, '-t', String(duration), '-vn', '-af', `highpass=f=45,lowpass=f=6500,loudnorm=I=-22:TP=-4:LRA=7,afade=t=in:st=0:d=2.5,afade=t=out:st=${duration - 3}:d=3`, '-ar', '44100', '-ac', '2', '-c:a', 'libvorbis', '-q:a', '2', '-metadata', `title=${track.title}`, '-metadata', `artist=${track.author}`, '-metadata', 'license=CC0 1.0 https://creativecommons.org/publicdomain/zero/1.0/', '-metadata', `comment=Source ${track.source}; EQ/loudness/fades by Hoi dong phuc dung`, file]);
+  execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', String(track.start), '-i', source, '-t', String(duration), '-vn', '-af', `highpass=f=45,lowpass=f=6500,loudnorm=I=-22:TP=-4:LRA=7,afade=t=in:st=0:d=2.5,afade=t=out:st=${duration - 3}:d=3`, '-ar', '44100', '-ac', '2', '-c:a', 'libvorbis', '-q:a', '2', '-metadata', `title=${track.title}`, '-metadata', `artist=${track.author}`, '-metadata', 'license=CC0 1.0 https://creativecommons.org/publicdomain/zero/1.0/', '-metadata', `comment=Source ${track.source}; EQ/loudness/fades by Mat Ma Ky Uc - Ho So 2126`, file]);
   report.push({ ...track, duration, sourceDuration, sourceSha256: createHash('sha256').update(fs.readFileSync(source)).digest('hex'), outputSha256: createHash('sha256').update(fs.readFileSync(file)).digest('hex'), bytes: fs.statSync(file).size });
 }
 fs.mkdirSync('.build/music-sources', { recursive: true });

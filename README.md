@@ -1,4 +1,6 @@
-# Hội đồng phục dựng · MLN131
+# Mật Mã Ký Ức — Hồ Sơ 2126
+
+*Bốn góc nhìn. Những ký ức chờ được nối lại.*
 
 Game điều tra giáo dục một người chơi, phong cách truyện tranh bí ẩn 2D. Bạn điều khiển An, Minh, Vy và Khôi, khám phá chứng cứ và phục dựng bốn khu vực của thư viện năm 2126.
 
@@ -127,7 +129,7 @@ Chưa thực hiện chơi thử với năm sinh viên, chưa đo trung vị 25�
 
 Chưa deploy hoặc tạo public URL. Khi nhóm cần, build `dist/` lên static hosting. Rewrite Vercel và `_redirects` cho SPA vẫn được giữ. Kiểm tra tải trực tiếp `/room/3`, `/codex`, `/demo`; luật mở khóa vẫn áp dụng.
 
-PowerPoint và lệnh `slides` hiện còn thuộc V1, chưa làm lại theo Hội đồng phục dựng theo phạm vi bàn giao đã chốt.
+PowerPoint và lệnh `slides` hiện còn thuộc V1, chưa làm lại theo Mật Mã Ký Ức — Hồ Sơ 2126 theo phạm vi bàn giao đã chốt.
 
 ## Bảo mật và tệp cục bộ
 

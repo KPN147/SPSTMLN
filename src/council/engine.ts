@@ -1,5 +1,6 @@
 import { allEvidence, allInvestigations, chapter, chapters, characters, dialogue, dialogues, finalReviewers } from './content';
 import type { RoomId } from '../game/types';
+import { brand } from './brand';
 import type { ChapterProgress, CouncilCase, CouncilDraft, GameSaveV2, RoleId, Verdict } from './types';
 
 export const SAVE_KEY_V2 = 'mln131-council-save-v2';
@@ -158,7 +159,7 @@ export function parseCouncilSave(raw: string | null): GameSaveV2 {
 export function loadCouncilGame(storage: Storage): { save: GameSaveV2; notice: string; recovered: boolean } {
   try {
     const save = parseCouncilSave(storage.getItem(SAVE_KEY_V2));
-    return { save, recovered: false, notice: !storage.getItem(SAVE_KEY_V2) && storage.getItem(LEGACY_SAVE_KEY) ? 'Hành trình Hội đồng phục dựng bắt đầu riêng. Tiến độ escape room cũ vẫn được giữ trên thiết bị.' : '' };
+    return { save, recovered: false, notice: !storage.getItem(SAVE_KEY_V2) && storage.getItem(LEGACY_SAVE_KEY) ? `Hành trình ${brand.title} bắt đầu riêng. Tiến độ escape room cũ vẫn được giữ trên thiết bị.` : '' };
   } catch {
     return { save: newCouncilGame(), recovered: true, notice: 'Không đọc được bản lưu. Bạn có thể bắt đầu hành trình mới; bản lưu cũ chưa bị xóa. Tiến độ mới sẽ được ghi khi bạn thực hiện thao tác.' };
   }

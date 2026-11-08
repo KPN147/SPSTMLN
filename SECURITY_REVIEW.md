@@ -1,4 +1,4 @@
-# Rà soát bảo mật — Hội đồng phục dựng
+# Rà soát bảo mật — Mật Mã Ký Ức — Hồ Sơ 2126
 
 Ngày kiểm tra: **09/11/2026**, múi giờ Asia/Bangkok.
 

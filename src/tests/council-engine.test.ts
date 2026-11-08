@@ -3,7 +3,7 @@ import { allEvidence, allInvestigations, chapters, dialogues, finalReviewers, kn
 import { blankDraft, councilReducer, coreUnlocked, judgeCase, judgeChapter, LEGACY_SAVE_KEY, loadCouncilGame, loreCount, newCouncilGame, parseCouncilSave, progressCount, SAVE_KEY_V2, unlocked } from '../council/engine';
 import { finishThrough, fullCouncilSave, prepareChapter, winningDraft } from './council-fixtures';
 
-describe('Nội dung Hội đồng phục dựng', () => {
+describe('Nội dung Mật Mã Ký Ức — Hồ Sơ 2126', () => {
   it('bao phủ 16 mục tiêu, 28 chứng cứ, sáu hotspot mỗi chương', () => {
     expect(chapters).toHaveLength(4); expect(allEvidence).toHaveLength(28); expect(allInvestigations).toHaveLength(12);
     const objectives = chapters.flatMap(c => [...c.investigations.map(t => t.objectiveId), `r${c.id}-p4`]);
