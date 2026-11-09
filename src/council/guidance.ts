@@ -20,6 +20,6 @@ export function investigationFeedback(task: Investigation, answer: Record<string
   if (missing.length) return `Còn ${missing.length} dữ kiện chưa gắn: ${missing.map(item => `“${item.label}”`).join(', ')}. Chọn một dữ kiện, rồi chọn vị trí ở bảng bên cạnh hoặc phía dưới.`;
   const wrong = task.items.find(item => answer[item.id] !== item.target);
   return wrong
-    ? `Dữ kiện “${wrong.label}” chưa khớp với hồ sơ. Chọn lại thẻ này để đổi vị trí; đọc lại chứng cứ hoặc dùng Gợi ý nếu cần. Các thẻ khác vẫn được giữ.`
+    ? `Dữ kiện “${wrong.label}” chưa khớp với hồ sơ. Đối chiếu theo gợi ý: ${task.hints[0]} Chọn lại thẻ này để đổi vị trí; các thẻ khác vẫn được giữ.`
     : 'Lựa chọn còn dữ kiện không thuộc bước này. Hãy kiểm tra lại các thẻ trước khi nộp.';
 }

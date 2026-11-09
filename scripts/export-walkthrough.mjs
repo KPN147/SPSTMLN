@@ -1,14 +1,14 @@
 import fs from 'node:fs';
 import { createServer } from 'vite';
 
-const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+const server = await createServer({ server: { middlewareMode: true, hmr: false }, appType: 'custom' });
 try {
   const { chapters, character, finalReviewers, knowledge } = await server.ssrLoadModule('/src/council/content.ts');
-  const lines = ['# Đáp án & hướng dẫn Mật Mã Ký Ức — Hồ Sơ 2126 V2', '', '> Có spoiler. Dành cho kiểm tra, học lại và chuẩn bị buổi trình diễn. Nội dung vẫn cần duyệt học thuật: 0 verified / 16 needs-review.', '', '## Nguyên tắc chung', '', 'Bốn chứng cứ đầu và ba bước kiểm chứng đủ để mở phiên hội đồng của mỗi chương. Hai chứng cứ bổ trợ có thể thay cho một số bộ chứng cứ khác, không bắt buộc thu thập toàn bộ. Phong thư mở sau bước kiểm chứng thứ hai và dùng thao tác ghi nhận riêng.', '', 'Kết luận đúng chưa đủ: phải gắn đúng một trong các tập chứng cứ được nêu dưới đây và chọn cách phục dựng phù hợp. Tháo thẻ thừa nếu không liên quan. Dùng gợi ý hoặc thử sai không làm mất tiến độ.', ''];
+  const lines = ['# Đáp án & hướng dẫn Mật Mã Ký Ức — Hồ Sơ 2126 V2', '', '> Có spoiler. Dành cho kiểm tra, học lại và chuẩn bị buổi trình diễn. Nội dung vẫn cần duyệt học thuật: 0 verified / 16 needs-review.', '', '## Nguyên tắc chung', '', 'Bốn chứng cứ đầu và ba bước kiểm chứng đủ để mở phiên hội đồng của mỗi chương. Hai chứng cứ bổ trợ có thể thay cho một số bộ chứng cứ khác, không bắt buộc thu thập toàn bộ. Phong thư mở sau bước kiểm chứng thứ hai và dùng thao tác ghi nhận riêng.', '', 'Kết luận đúng chưa đủ: cần đủ một bộ chứng cứ chứng minh và cách sửa phù hợp. Có thể thêm hồ sơ liên quan, nhưng không thêm hồ sơ phục vụ câu hỏi khác. Dùng gợi ý hoặc thử sai không làm mất tiến độ.', ''];
   const renderCase = (c, definition) => {
-    lines.push(`**Kết luận:** ${definition.conclusions.find(o => o.id === definition.correctConclusion).text}`, '', `**Cách phục dựng:** ${definition.repairs.find(o => o.id === definition.correctRepair).text}`, '', '**Các tập chứng cứ hợp lệ (chọn một tập):**', '');
+    lines.push(`**Câu hỏi:** ${definition.guide.question}`, '', `**Kết luận:** ${definition.conclusions.find(o => o.id === definition.correctConclusion).text}`, '', `**Cách phục dựng:** ${definition.repairs.find(o => o.id === definition.correctRepair).text}`, '', '**Một số bộ đủ căn cứ (có thể thêm hồ sơ liên quan):**', '');
     for (const set of definition.evidenceSets) lines.push(`- ${set.map(id => c.evidence.find(e => e.id === id).title).join(' + ')}`);
-    lines.push('', definition.success, '');
+    lines.push('', `**Vì sao:** ${definition.guide.explanation}`, '', `**Vì sao cách sửa phù hợp:** ${definition.guide.repairExplanation}`, '', definition.success, '');
   };
   for (const c of chapters) {
     lines.push(`## ${c.id}. ${c.name} — ${c.subtitle}`, '', c.incident, '', '### Tìm chứng cứ', '', '| Điểm | Hồ sơ | Thành viên | Điều kiện |', '|---|---|---|---|');

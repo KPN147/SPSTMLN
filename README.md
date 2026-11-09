@@ -49,7 +49,7 @@ Không mở `dist/index.html` trực tiếp bằng `file:`. Bản build đã có
 2. Xem **Việc cần làm tiếp theo** ở đầu phòng. Nút vàng mở đúng hồ sơ hoặc bước kiểm chứng còn thiếu; vẫn có thể tự khám phá bằng cảnh/danh sách.
 3. Đọc tài liệu rồi bấm **Ghi nhận chứng cứ**. Chỉ đọc chưa tính là thu thập. Thanh hướng dẫn đếm riêng các chứng cứ bắt buộc.
 4. Làm đủ ba bước **Kiểm chứng hồ sơ**. Chọn dữ kiện, sau đó chọn vị trí để gắn, rồi bấm nút kiểm tra. Phản hồi chỉ rõ thẻ chưa gắn hoặc một thẻ đang sai; Gợi ý giúp đọc lại quan hệ. Xong mỗi bước có nút **Tiếp tục bước tiếp theo**.
-5. Mở **Bàn hội đồng**, chọn kết luận, đúng số hồ sơ liên quan và phương án sửa, rồi **Đề xuất với hội đồng**. Không chọn tất cả thẻ: thẻ thừa có thể khiến đề xuất bị từ chối. Nếu còn thiếu, trở lại điều tra; lựa chọn được giữ.
+5. Mở **Bàn hội đồng**, làm lần lượt ba phần: **Bản ghi sai ở đâu? → Hồ sơ nào chứng minh? → Sửa bằng cách nào?** Đọc câu hỏi và dòng “Giúp kiểm tra” dưới thẻ. Khi mắc, mở **Xem cách suy luận** hoặc **Xem một cách trả lời mẫu và lý do**; các mục này không tự điền hoặc nộp bài. Có thể thêm hồ sơ liên quan khi đã đủ căn cứ. Nếu sai, phản hồi nêu phần cần sửa, tên hồ sơ thiếu/không liên quan và có nút quay về đúng bước.
 6. Khi phục dựng thành công, bấm **Sang phòng tiếp theo** ngay trong cửa sổ kết quả. Phục dựng đủ bốn khu vực để vào Phòng Lõi; tìm thêm thư nếu muốn mở kết thúc đặc biệt.
 
 Tab để di chuyển, Enter/Space để kích hoạt, Escape đóng dialog. Không bắt buộc kéo thả, hover hoặc nghe âm thanh. Nút âm thanh và cài đặt nằm ở header; giảm chuyển động cũng tuân theo hệ thống.
@@ -98,7 +98,7 @@ npm run build
 
 Bộ kiểm tra gồm luật/save V2, nội dung và nguồn tham chiếu, hồi quy dialog, tương tác, demo độc lập, lượt chơi qua bốn phòng/Phòng Lõi và hai kết thúc. Không dùng bài kiểm tra tự động để tuyên bố hiệu quả học tập.
 
-Kết quả hiện tại: lint PASS, 92 bài kiểm tra PASS, build PASS; kiểm tra Chromium production ở 1366/768/360px PASS. Đã kiểm tra phát cả hai bản nhạc miễn phí, chỉnh âm lượng không tua nhạc và hiển thị credit CC0. Lượt tải đầu khoảng 1,86 MB. Xem [báo cáo và ảnh kiểm tra](QA_REPORT.md).
+Kết quả hiện tại: lint PASS, 114 bài kiểm tra PASS, build PASS; kiểm tra Chromium production ở 1366/768/360px PASS. Đã kiểm tra phát cả hai bản nhạc miễn phí, chỉnh âm lượng không tua nhạc và hiển thị credit CC0. Lượt tải đầu khoảng 1,87 MB. Xem [báo cáo và ảnh kiểm tra](QA_REPORT.md).
 
 Trong Codex có primary runtime và Chromium của Playwright:
 

@@ -22,7 +22,7 @@ export function RoomGuide({ chapter, progress, step, onContinue }: {
     : step.kind === 'investigation'
       ? `Đã đủ chứng cứ bắt buộc. Làm bước ${step.number}: chọn từng dữ kiện, chọn vị trí để gắn, rồi bấm nút kiểm tra. Có thể dùng Gợi ý và sửa lựa chọn.`
       : step.kind === 'council'
-        ? 'Đã đủ 4 chứng cứ và 3 kiểm chứng. Mở hội đồng, chọn kết luận, chứng cứ liên quan và phương án sửa, rồi bấm “Đề xuất với hội đồng”.'
+        ? 'Đã đủ 4 chứng cứ và 3 kiểm chứng. Tại hội đồng, trả lời lần lượt: máy sai ở đâu, hồ sơ nào chứng minh và cần sửa gì. Có hướng dẫn suy luận và một cách trả lời mẫu nếu bạn mắc.'
         : 'Bạn đã qua phòng này. Có thể đi tiếp ngay hoặc ở lại tìm các hồ sơ phụ.';
   const action = step.kind === 'evidence'
     ? `Mở hồ sơ ${step.evidence.index + 1}: ${step.evidence.title}`

@@ -7,7 +7,7 @@ Ghi nhận ban đầu: 08/11/2026; cập nhật gần nhất: 09/11/2026. Đây 
 | Hạng mục | Kết quả |
 |---|---|
 | `npm run lint` | PASS, không lỗi/cảnh báo ở lần kiểm tra cuối |
-| `npm run test` | PASS, 92 bài trong 6 file |
+| `npm run test` | PASS, 114 bài trong 7 file |
 | `npm run build` | PASS, xuất `dist/` |
 | Chromium production | PASS, chơi qua bốn phòng và Phòng Lõi bằng giao diện |
 | 1366px / 768px / 360px | PASS, không tràn ngang |
@@ -21,7 +21,7 @@ Ghi nhận ban đầu: 08/11/2026; cập nhật gần nhất: 09/11/2026. Đây 
 | Nhạc | PASS phát cả Synthwave 4k và Contemplation sau thao tác bật, không báo lỗi autoplay; chỉnh volume giữ nguyên đối tượng phát và vị trí bài |
 | Giảm chuyển động | PASS, không thay đổi tiến độ |
 | Lỗi chạy hoặc tài nguyên HTTP lỗi trong lượt browser | 0 |
-| Lượt tải đầu trang chủ | 1.863.610 byte, khoảng 1,86 MB ở cả ba kích thước, với các header bảo mật production |
+| Lượt tải đầu trang chủ | Khoảng 1,87 MB ở cả ba kích thước, với các header bảo mật production |
 
 `output/qa/browser-report.json` là báo cáo chi tiết của lượt production cuối, kèm 13 ảnh giao diện. Không có đường debug vượt khóa trong bản phát hành; lượt chơi đầy đủ đi bằng giao diện. Fixture chỉ được dùng để chuẩn bị trạng thái cho ảnh phòng 3 và kiểm tra riêng kết thúc thường.
 
@@ -40,6 +40,15 @@ Ghi nhận ban đầu: 08/11/2026; cập nhật gần nhất: 09/11/2026. Đây 
 - Có liên kết tới hướng dẫn ngay dưới các nút bắt đầu; sáu bước mô tả đúng thao tác trong game, kèm câu hỏi thường gặp và đường vào demo.
 - PASS kiểm tra ở 1366px và 360px: đủ sáu bước, liên kết cuộn đúng mục, mở trợ giúp bằng bàn phím, vào demo và không thay đổi tiến độ chính; không tràn ngang hoặc có lỗi JavaScript.
 - Lint và production build đạt. Báo cáo: `output/qa/home-help-report.json`; ảnh: `output/qa/home-help-1366.png` và `output/qa/home-help-360.png`. Điện thoại được mô phỏng bằng Chromium.
+
+## Viết lại nội dung để dễ suy luận
+
+- Cả 4 phiên hội đồng, 4 đoạn Phòng Lõi và demo có câu hỏi cụ thể, ý cần kiểm tra, hướng dẫn suy luận, giải mẫu có lý do và ghi chú giải thích vai trò từng hồ sơ. Mở giải mẫu không tự chọn đáp án, nộp hoặc thay tiến độ.
+- 28 hồ sơ có ý chính dễ đọc; vẫn mở được diễn giải đầy đủ và thấy nguồn, nhãn hư cấu/minh họa, trạng thái chờ duyệt. Viết lại lời dẫn và hai cấp gợi ý cho 12 nhiệm vụ, mở tài liệu đọc nhanh tại nhiệm vụ và bảng ghép mẫu khi dùng gợi ý cấp hai. Các chữ viết tắt trong thẻ thao tác được viết đầy đủ.
+- Chấp nhận căn cứ đầy đủ kèm thẻ bổ sung liên quan, không bắt khớp tuyệt đối số thẻ. Vẫn từ chối thẻ không liên quan, lặp, chưa thu thập hoặc thiếu căn cứ. Giải thích lựa chọn sai và chỉ rõ thẻ cần thêm/bỏ; nút sửa đưa focus về đúng bước. Trạng thái lưu cũ vẫn hợp lệ.
+- 114 kiểm thử đạt, gồm kiểm tra cả 8 giải mẫu, giải thích theo từng lựa chọn, thẻ bổ sung, thẻ sai, nguồn và bản lưu cũ. Giữ 16 mục tiêu học và 0 verified / 16 needs-review; việc viết lại không phải xác nhận học thuật.
+- Lượt chơi đầy đủ trên desktop và giao diện 1366/768/360px đạt. Kiểm tra riêng 18 lượt hội đồng (4 phòng + 4 đoạn cuối + demo, mỗi loại ở 1366px và 360px) đạt: mẫu giữ lựa chọn, sửa đúng phần, nộp được, demo không ghi tiến độ chính; không lỗi JavaScript/CSP hoặc tràn ngang.
+- Báo cáo: `output/qa/clear-content-report.json`; ảnh: `output/qa/clear-case-1-1366.png`, `output/qa/clear-case-1-360.png`, `output/qa/clear-final-3-360.png`. Kiểm tra điện thoại là mô phỏng; chưa có khảo sát người chơi thật về mức dễ hiểu.
 
 ## Chỉ dẫn qua phòng trong lúc chơi
 

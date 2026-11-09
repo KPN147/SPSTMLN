@@ -28,7 +28,11 @@ Các ID `r1-p1`…`r4-p4` giữ vai trò mục tiêu học và tra cứu nguồn
 
 ## Hội đồng và Phòng Lõi
 
-Mỗi đề xuất gồm kết luận, tập chứng cứ và phương án phục dựng. Kiểm tra yêu cầu điều tra trước, sau đó phản hồi theo phần lập luận sai. Có nhiều bộ chứng cứ hợp lệ; tập có thẻ dư không liên quan phải được sửa. Không phạt hint hoặc lần thử.
+Mỗi đề xuất trả lời ba câu: bản ghi sai ở đâu, hồ sơ nào chứng minh và sửa bằng cách nào. Từng phiên có câu hỏi ngắn, ý cần kiểm tra, lý do dùng từng hồ sơ và cách trả lời mẫu có thể mở khi mắc. Mở mẫu không tự điền, nộp hoặc hoàn thành nhiệm vụ.
+
+Kiểm tra yêu cầu điều tra trước, sau đó phản hồi cụ thể theo lựa chọn. Đủ một bộ chứng cứ hỗ trợ là hợp lệ; có thể thêm hồ sơ được xác định liên quan, nhưng không thêm hồ sơ phục vụ vấn đề khác. Phản hồi nêu tên thẻ cần bổ sung hoặc bỏ ra và có nút về bước sai. Giữ các bộ cũ để không làm hỏng bản lưu; riêng đoạn cuối về tuyến chuyển tiếp chấp nhận trực tiếp hồ sơ điều kiện xuất phát. Không phạt gợi ý hoặc lần thử.
+
+28 hồ sơ có bản đọc ngắn, bản diễn giải gốc và nguồn. 12 nhiệm vụ dùng câu lệnh trực tiếp, tài liệu đọc nhanh, gợi ý hai cấp và bảng ghép mẫu sau cấp hai. Nội dung hội đồng ở `src/council/councilContent.ts`; bản đọc ngắn và lời phản ứng ở `src/council/evidenceContent.ts`. Các ID, nhóm đáp án thao tác và 16 mục tiêu học được giữ; trạng thái nguồn vẫn chờ duyệt.
 
 Phòng Lõi dùng bốn vấn đề mới: trình tự và nhân quả; ngoại hình và hồ sơ; tuyến chuyển tiếp và bối cảnh; tuyên bố quyền và thực hiện. Phân công An, Vy, Minh, Khôi kiểm tra các đoạn tương ứng trước khi xác nhận. Không phát sinh khái niệm học thuật mới.
 
@@ -38,7 +42,7 @@ Hoàn thành báo cáo mở kết thúc thường; tìm đủ bốn thư mở k�
 
 - Desktop: cảnh trung tâm, panel bên phải, thanh vai và đối thoại bên dưới. Mobile: cảnh và danh sách điểm khám phá, panel đồ vật bằng native dialog từ đáy.
 - Sổ chung: Chứng cứ / Giả thuyết / Kiến thức; lưu bộ lọc và vị trí đọc trong phiên. Ghi chú và lựa chọn đang làm được lưu cùng tiến độ.
-- Nội dung điều tra, hội thoại và lập luận 16px; chữ trong tranh được dựng riêng bằng HTML. Font Be Vietnam Pro và Lora được đóng gói cục bộ.
+- Nội dung điều tra, hội thoại và lập luận 16–18px; chữ trong tranh được dựng riêng bằng HTML. Font Be Vietnam Pro và Lora được đóng gói cục bộ.
 - Năm biểu cảm cho từng nhân vật. Hai lớp SVG chuyển động tách nền mỗi cảnh: thiết bị quay và mô hình chiếu; đường nối sáng sau kiểm chứng, lớp phục dựng sau phiên họp.
 - Thao tác 150–450ms, phục dựng phòng khoảng 1,6 giây, màn cuối khoảng 4,5 giây; đều không quyết định tiến độ. Có giảm chuyển động và bỏ qua.
 - Hai bản ambient miễn phí trên OpenGameArt (CC0), thay nhạc tổng hợp cũ: Synthwave 4k (khoảng 2 phút 38 giây) và Contemplation (khoảng 2 phút), cân âm và fade đầu/cuối. Tám hiệu ứng thao tác vẫn là âm thanh gốc. Âm thanh mặc định tắt; tách âm lượng nhạc/hiệu ứng, chỉnh mức nhạc không tạo lại player; dừng khi tab ẩn.

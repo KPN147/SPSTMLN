@@ -6,7 +6,7 @@ const steps = [
   { title: 'Ghi nhận 4 chứng cứ bắt buộc', icon: Fingerprint, text: 'Dùng “Việc cần làm tiếp theo” trong phòng để mở hồ sơ, đọc tài liệu rồi bấm “Ghi nhận chứng cứ”. Hai hồ sơ bổ trợ và phong thư là tùy chọn.', tip: 'Chỉ đọc chưa tính là thu thập.' },
   { title: 'Trao đổi cùng đồng đội', icon: MessageCircle, text: 'Chọn câu hỏi hoặc đối chiếu chứng cứ trong hội thoại. Đổi vai bằng chân dung; hành động chuyên môn cũng tự chuyển sang người phù hợp.' },
   { title: 'Hoàn thành 3 kiểm chứng', icon: Link2, text: 'Ở phần “Kiểm chứng hồ sơ”, chọn từng bước. Chọn một dữ kiện, chọn vị trí để gắn, rồi bấm kiểm tra hoặc chạy thử.', tip: 'Chọn thẻ trước → chọn vị trí sau.' },
-  { title: 'Đề xuất với hội đồng', icon: Users, text: 'Sau 3 kiểm chứng, chọn kết luận, đúng số hồ sơ liên quan và phương án sửa. Không chọn tất cả chứng cứ; thẻ thừa có thể khiến đề xuất bị từ chối.', tip: 'Kết luận → Chứng cứ → Cách sửa.' },
+  { title: 'Đề xuất với hội đồng', icon: Users, text: 'Sau 3 kiểm chứng, trả lời: bản ghi sai ở đâu, hồ sơ nào chứng minh, và cần sửa gì. Mỗi thẻ có dòng giải thích; có thể mở cách suy luận hoặc ví dụ trả lời khi mắc.', tip: 'Kết luận → Chứng cứ → Cách sửa.' },
   { title: 'Phục dựng và đi tiếp', icon: Sparkles, text: 'Đề xuất được chấp nhận sẽ làm căn phòng sáng lại và mở khu vực tiếp theo. Phục dựng đủ bốn khu vực để vào Phòng Lõi.' },
 ];
 

@@ -18,12 +18,21 @@ export function validInvestigation(id: string, answer: Record<string, string>): 
   return !!task && Object.keys(answer).length === task.items.length && task.items.every(i => answer[i.id] === i.target);
 }
 export function judgeCase(c: CouncilCase, draft: CouncilDraft, available: string[]): Verdict {
-  if (!draft.conclusion || !draft.repair) return { ok: false, speaker: 'khoi', message: 'Hãy chọn một kết luận và một phương án phục dựng trước khi đề xuất.', kind: 'missing' };
-  if (draft.conclusion !== c.correctConclusion) return { ok: false, speaker: 'an', message: c.rebuttals.conclusion, kind: 'conclusion' };
+  if (!draft.conclusion) return { ok: false, speaker: 'khoi', message: 'Bước 1 còn trống. Hãy chọn câu trả lời cho câu hỏi “Bản ghi sai ở đâu?”. Có thể mở phần hướng dẫn suy luận nếu chưa rõ.', kind: 'missing', step: 'conclusion' };
+  if (draft.conclusion !== c.correctConclusion) return { ok: false, speaker: 'an', message: `${c.conclusions.find(o => o.id === draft.conclusion)?.explanation ?? c.rebuttals.conclusion} Hãy sửa lựa chọn ở bước 1; các phần đã chọn khác được giữ nguyên.`, kind: 'conclusion', step: 'conclusion' };
   const ids = draft.evidence;
-  const exact = c.evidenceSets.some(set => set.length === ids.length && new Set(ids).size === ids.length && set.every(id => ids.includes(id) && available.includes(id)));
-  if (!exact) return { ok: false, speaker: 'vy', message: c.rebuttals.evidence, kind: 'evidence' };
-  if (draft.repair !== c.correctRepair) return { ok: false, speaker: 'minh', message: c.rebuttals.repair, kind: 'repair' };
+  const names = (values: string[]) => values.map(id => `“${allEvidence.find(e => e.id === id)?.title ?? id}”`).join(', ');
+  if (new Set(ids).size !== ids.length || ids.some(id => !available.includes(id))) return { ok: false, speaker: 'vy', message: 'Chỉ chọn mỗi hồ sơ một lần và dùng những hồ sơ đã ghi nhận. Trở lại điều tra nếu còn thiếu tài liệu.', kind: 'evidence', step: 'evidence' };
+  const unrelated = ids.filter(id => !Object.hasOwn(c.guide.evidenceNotes, id));
+  if (unrelated.length) return { ok: false, speaker: 'vy', message: `Kết luận ở bước 1 phù hợp. Hãy bỏ ${names(unrelated)} ở bước 2: hồ sơ này phục vụ câu hỏi khác, chưa chứng minh điều đang xét. Đọc dòng “Giúp kiểm tra” dưới mỗi thẻ để chọn lại.`, kind: 'evidence', step: 'evidence' };
+  if (!c.evidenceSets.some(set => set.every(id => ids.includes(id)))) {
+    const candidates = c.evidenceSets.filter(set => set.every(id => available.includes(id)));
+    const closest = [...(candidates.length ? candidates : c.evidenceSets)].sort((a, b) => a.filter(id => !ids.includes(id)).length - b.filter(id => !ids.includes(id)).length)[0];
+    const missing = closest.filter(id => !ids.includes(id));
+    return { ok: false, speaker: 'vy', message: `Kết luận ở bước 1 phù hợp, nhưng còn thiếu căn cứ. Một cách bổ sung là gắn ${names(missing)}. ${missing.map(id => c.guide.evidenceNotes[id]).join(' ')} Các thẻ liên quan đã chọn vẫn được giữ.`, kind: 'evidence', step: 'evidence' };
+  }
+  if (!draft.repair) return { ok: false, speaker: 'khoi', message: 'Đã có kết luận và chứng cứ phù hợp. Bước 3 còn trống: hãy chọn cách sửa đúng lỗi vừa tìm được.', kind: 'missing', step: 'repair' };
+  if (draft.repair !== c.correctRepair) return { ok: false, speaker: 'minh', message: `${c.repairs.find(o => o.id === draft.repair)?.explanation ?? c.rebuttals.repair} Kết luận và chứng cứ đã phù hợp; chỉ cần sửa bước 3.`, kind: 'repair', step: 'repair' };
   return { ok: true, speaker: 'khoi', message: c.success, kind: 'success' };
 }
 export function judgeChapter(s: GameSaveV2, id: RoomId): Verdict {

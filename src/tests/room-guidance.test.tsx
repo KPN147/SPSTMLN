@@ -45,7 +45,7 @@ describe('Hướng dẫn qua phòng', () => {
       fireEvent.click(panel.getByRole('button', { name: 'Tiếp tục bước tiếp theo' }));
     }
     const council = within(screen.getByRole('dialog', { name: 'Bàn hội đồng' }));
-    expect(council.getByText(/Chọn 3 hồ sơ thực sự hỗ trợ kết luận/)).toBeVisible();
+    expect(council.getByText(/Chọn ít nhất 3 hồ sơ để đủ căn cứ/)).toBeVisible();
     fireEvent.click(council.getByRole('radio', { name: c.council.conclusions.find(o => o.id === c.council.correctConclusion)!.text }));
     for (const id of c.council.evidenceSets[0]) {
       const evidence = c.evidence.find(e => e.id === id)!;

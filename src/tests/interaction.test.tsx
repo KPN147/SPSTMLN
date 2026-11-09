@@ -122,12 +122,12 @@ describe('Bản chơi thử độc lập', () => {
   it('không đọc hoặc ghi V1/V2 kể cả khi chơi xong và chơi lại', () => {
     localStorage.setItem(SAVE_KEY_V2, 'v2-sentinel'); localStorage.setItem(LEGACY_SAVE_KEY, 'v1-sentinel'); window.history.replaceState({}, '', '/demo');
     const get = vi.spyOn(Storage.prototype, 'getItem'), set = vi.spyOn(Storage.prototype, 'setItem'); render(<App/>);
-    fireEvent.click(screen.getByRole('button', { name: 'Minh: kiểm tra & ghi nhận' })); fireEvent.click(screen.getByRole('button', { name: 'An: kiểm tra & ghi nhận' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Ghi nhận chứng cứ · Minh' })); fireEvent.click(screen.getByRole('button', { name: 'Ghi nhận chứng cứ · An' }));
     const c = chapters[2].council; fireEvent.click(screen.getByRole('radio', { name: c.conclusions.find(o => o.id === c.correctConclusion)!.text }));
     for (const name of ['Nhật ký xóa toàn bộ', 'Phạm vi của “bỏ qua”']) fireEvent.click(screen.getByRole('checkbox', { name: new RegExp(`^${esc(name)}`) }));
     fireEvent.click(screen.getByRole('radio', { name: c.repairs.find(o => o.id === c.correctRepair)!.text })); fireEvent.click(screen.getByRole('button', { name: /Đề xuất với hội đồng/ }));
     expect(screen.getByRole('heading', { name: 'Bạn đã nối được hai góc nhìn.' })).toBeVisible();
-    fireEvent.click(screen.getByRole('button', { name: 'Chơi lại bản thử' })); expect(screen.getByRole('button', { name: 'Minh: kiểm tra & ghi nhận' })).toBeEnabled();
+    fireEvent.click(screen.getByRole('button', { name: 'Chơi lại bản thử' })); expect(screen.getByRole('button', { name: 'Ghi nhận chứng cứ · Minh' })).toBeEnabled();
     expect(get).not.toHaveBeenCalledWith(SAVE_KEY_V2); expect(get).not.toHaveBeenCalledWith(LEGACY_SAVE_KEY);
     expect(set.mock.calls.some(call => call[0] === SAVE_KEY_V2 || call[0] === LEGACY_SAVE_KEY)).toBe(false); get.mockRestore(); set.mockRestore();
     expect(localStorage.getItem(SAVE_KEY_V2)).toBe('v2-sentinel'); expect(localStorage.getItem(LEGACY_SAVE_KEY)).toBe('v1-sentinel');

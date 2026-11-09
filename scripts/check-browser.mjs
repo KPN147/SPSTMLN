@@ -8,7 +8,7 @@ import { createServer, preview } from 'vite';
 const runtime = process.env.RUNTIME_NODE_MODULES || path.join(process.env.USERPROFILE || '', '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules');
 const require = createRequire(path.join(runtime, 'package.json'));
 const { chromium } = require('playwright');
-const vite = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+const vite = await createServer({ server: { middlewareMode: true, hmr: false }, appType: 'custom' });
 const { chapters } = await vite.ssrLoadModule('/src/council/content.ts');
 const { finishThrough, prepareChapter, fullCouncilSave } = await vite.ssrLoadModule('/src/tests/council-fixtures.ts');
 const { SAVE_KEY_V2, LEGACY_SAVE_KEY } = await vite.ssrLoadModule('/src/council/engine.ts');
@@ -130,7 +130,7 @@ try {
   assert.equal(await page.getByRole('link', { name: 'Contemplation', exact: true }).getAttribute('href'), 'https://opengameart.org/content/contemplation-0');
   await capture(page, 'music-credits');
   const before = await page.evaluate(([v2, v1]) => [localStorage.getItem(v2), localStorage.getItem(v1)], [SAVE_KEY_V2, LEGACY_SAVE_KEY]);
-  await page.goto(`${base}/demo`); await page.getByRole('button', { name: 'Minh: kiểm tra & ghi nhận' }).click(); await page.getByRole('button', { name: 'An: kiểm tra & ghi nhận' }).click();
+  await page.goto(`${base}/demo`); await page.getByRole('button', { name: 'Ghi nhận chứng cứ · Minh' }).click(); await page.getByRole('button', { name: 'Ghi nhận chứng cứ · An' }).click();
   const d = { ...chapters[2].council, evidenceSets: [['c3-e2', 'c3-e5']] };
   await chooseCase(page, page.getByRole('region', { name: d.title }), d);
   await page.getByRole('heading', { name: 'Bạn đã nối được hai góc nhìn.' }).waitFor();
