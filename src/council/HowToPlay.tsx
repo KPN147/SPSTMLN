@@ -20,6 +20,6 @@ export function HowToPlay() {
       <details><summary>Có cần tìm đủ 7 hồ sơ mỗi phòng?<span aria-hidden="true">＋</span></summary><p>Bốn chứng cứ thiết yếu và ba bước kiểm chứng đủ để giải quyết căn phòng. Hai hồ sơ đối chiếu là bổ sung; lá thư truyện phụ mở sau bước kiểm chứng thứ hai. Tìm đủ bốn lá thư sẽ mở thêm kết thúc đặc biệt.</p></details>
       <details><summary>Lần sau có phải chơi lại từ đầu?<span aria-hidden="true">＋</span></summary><p>Tiến độ và lựa chọn đang làm được tự lưu trên trình duyệt đang dùng. Trở lại bằng cùng thiết bị và trình duyệt để tiếp tục hành trình. Bạn cũng có thể mở Sổ chung để xem lại kiến thức đã khám phá.</p></details>
     </div>
-    <div className="how-to-actions"><span><Users size={16} aria-hidden="true"/>Một người chơi · Bốn vai đồng hành</span><Link className="button secondary" to="/demo">Thử cách chơi trong 3 phút<ArrowRight size={16}/></Link><Link className="text-button" to="/play">Đến bản đồ thư viện<ArrowRight size={16}/></Link></div>
+    <div className="how-to-actions"><span><Users size={16} aria-hidden="true"/>Một người chơi · Bốn vai đồng hành</span><Link className="button secondary" to="/guide" state={{ guideFrom: '/' }}>Đọc hướng dẫn đầy đủ<BookOpen size={16}/></Link><Link className="text-button" to="/demo">Thử cách chơi trong 3 phút<ArrowRight size={16}/></Link></div>
   </section>;
 }

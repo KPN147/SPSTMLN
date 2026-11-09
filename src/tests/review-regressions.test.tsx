@@ -24,7 +24,7 @@ describe('Hồi quy sau rà soát',()=>{
  it('các link điều hướng vẫn có tên khi nhãn chữ bị ẩn trên mobile',()=>{
   localStorage.clear();window.history.replaceState({},'','/');render(<App/>);
   const nav=within(screen.getByRole('navigation',{name:'Điều hướng chính'}));
-  for(const name of ['Bản đồ','Sổ chung']){
+  for(const name of ['Bản đồ','Sổ chung','Hướng dẫn']){
    const link=nav.getByRole('link',{name});link.querySelector('span')!.style.display='none';
    expect(nav.getByRole('link',{name})).toHaveAccessibleName(name);
   }

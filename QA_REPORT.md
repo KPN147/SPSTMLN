@@ -7,7 +7,7 @@ Ghi nhận ban đầu: 08/11/2026; cập nhật gần nhất: 09/11/2026. Đây 
 | Hạng mục | Kết quả |
 |---|---|
 | `npm run lint` | PASS, không lỗi/cảnh báo ở lần kiểm tra cuối |
-| `npm run test` | PASS, 114 bài trong 7 file |
+| `npm run test` | PASS, 123 bài trong 8 file |
 | `npm run build` | PASS, xuất `dist/` |
 | Chromium production | PASS, chơi qua bốn phòng và Phòng Lõi bằng giao diện |
 | 1366px / 768px / 360px | PASS, không tràn ngang |
@@ -21,9 +21,18 @@ Ghi nhận ban đầu: 08/11/2026; cập nhật gần nhất: 09/11/2026. Đây 
 | Nhạc | PASS phát cả Synthwave 4k và Contemplation sau thao tác bật, không báo lỗi autoplay; chỉnh volume giữ nguyên đối tượng phát và vị trí bài |
 | Giảm chuyển động | PASS, không thay đổi tiến độ |
 | Lỗi chạy hoặc tài nguyên HTTP lỗi trong lượt browser | 0 |
-| Lượt tải đầu trang chủ | Khoảng 1,87 MB ở cả ba kích thước, với các header bảo mật production |
+| Lượt tải đầu trang chủ | Khoảng 1,88 MB ở cả ba kích thước, với các header bảo mật production |
 
 `output/qa/browser-report.json` là báo cáo chi tiết của lượt production cuối, kèm 13 ảnh giao diện. Không có đường debug vượt khóa trong bản phát hành; lượt chơi đầy đủ đi bằng giao diện. Fixture chỉ được dùng để chuẩn bị trạng thái cho ảnh phòng 3 và kiểm tra riêng kết thúc thường.
+
+## Cẩm nang riêng và gợi ý lần đầu
+
+- Tab **Hướng dẫn** nằm cạnh **Sổ chung** trên mọi trang, kể cả demo. Điện thoại dùng hai hàng header, cả ba nhãn Bản đồ / Sổ chung / Hướng dẫn luôn hiện trên cùng hàng điều hướng.
+- `/guide` có mục lục 10 phần: bối cảnh, bốn vai, màn hình, chứng cứ, kiểm chứng, hội đồng, Sổ chung, toàn hành trình, điều khiển/lưu và gỡ rối. Có ví dụ ghép thẻ tương tác độc lập cùng ví dụ lập luận có thể mở; không cộng tiến độ.
+- Lần đầu truy cập có khung gợi ý với mũi tên và tab được làm nổi bật. Đọc hoặc đóng gợi ý bằng nút/Escape ghi nhận trên trình duyệt; chặn lưu vẫn đóng được trong tab hiện tại, kể cả đi qua demo. Không chiếm focus đầu trang; Escape của dialog không đồng thời đóng gợi ý.
+- Nút quay lại nhớ trang vừa mở sau khi dùng mục lục. Bản lưu phòng, câu trả lời, dự thảo hội đồng, ghi chú và V1 được giữ; vào hướng dẫn không ghi đè bản lưu V2 lỗi.
+- Lint, 123 kiểm thử và production build đạt. Lượt chơi đầy đủ trên Chromium đạt. Kiểm tra riêng cẩm nang ở 1366/768/360px đạt, gồm chạm mô phỏng, thiếu/sai/đúng/làm lại ví dụ, mục lục, quay lại, tải lại và chặn lưu. Không tràn ngang, lỗi JavaScript, tài nguyên lỗi hoặc vi phạm CSP trong các lượt đã kiểm tra.
+- Báo cáo riêng: `output/qa/game-guide-report.json`, 12 ảnh gồm `guide-intro-360.png`, `guide-page-1366.png`, `guide-practice-360.png`. Đã xem trực tiếp ảnh desktop và mobile; chưa có thử nghiệm người chơi thật cho cẩm nang mới.
 
 ## Thay nhạc nền miễn phí
 

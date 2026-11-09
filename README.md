@@ -35,6 +35,7 @@ Không mở `dist/index.html` trực tiếp bằng `file:`. Bản build đã có
 - Phòng Lõi gồm bốn đoạn báo cáo mới; phân công từng thành viên kiểm tra trước khi xác nhận bản sửa.
 - Hai kết thúc theo số lá thư tìm được; có thể quay lại tìm thư sau khi hoàn thành.
 - Sổ chung gồm Chứng cứ, Giả thuyết, Kiến thức; có nguồn và giải thích, giữ lựa chọn đang làm qua tải lại.
+- Tab Hướng dẫn cạnh Sổ chung mở cẩm nang riêng: bối cảnh, nhân vật, thao tác từng bước, ví dụ ghép thẻ và cách trả lời hội đồng. Gợi ý lần đầu chỉ tới tab này.
 - Hai cấp gợi ý mỗi bước, thử sai không mất tiến độ, lưu V2 riêng và reset có xác nhận.
 - Sáu tranh cảnh, tranh nhóm trang chủ, 20 biểu cảm và 28 minh họa chứng cứ đóng gói thành atlas; chữ và lớp chuyển động tách khỏi tranh.
 - Hai bản ambient miễn phí trên OpenGameArt (CC0), dài khoảng 2 phút 38 giây và 2 phút; tám hiệu ứng gốc. Nhạc được cân nhẹ, fade đầu/cuối; mặc định tắt, chỉnh âm lượng không tua lại nhạc, dừng khi tab ẩn.
@@ -42,6 +43,8 @@ Không mở `dist/index.html` trực tiếp bằng `file:`. Bản build đã có
 - Demo độc lập tại `/demo`, không mount provider hoặc đọc/ghi tiến độ chính.
 
 ## Cách chơi
+
+Lần đầu vào game, gợi ý ở đầu trang chỉ tới tab **Hướng dẫn**. Mở tab để đọc cẩm nang đầy đủ tại `/guide`, dùng mục lục tìm nhanh hoặc tập ghép thẻ ngay trên trang. Nút quay lại đưa về trang vừa mở; bài tập hướng dẫn không tính vào tiến độ chính.
 
 **Điều kiện qua mỗi phòng: 4 chứng cứ bắt buộc → 3 kiểm chứng hoàn thành → đề xuất đúng tại hội đồng.** Hai hồ sơ bổ trợ và phong thư không bắt buộc.
 
@@ -62,6 +65,7 @@ Tab để di chuyển, Enter/Space để kích hoạt, Escape đóng dialog. Kh�
 | `/play` | Bản đồ bốn khu vực và Phòng Lõi |
 | `/room/1`…`/room/4` | Điều tra, chứng cứ, đối thoại, kiểm chứng và hội đồng |
 | `/codex` | Sổ chung |
+| `/guide` | Cẩm nang toàn bộ game, mục lục, ví dụ thao tác và gỡ rối |
 | `/final` | Báo cáo tổng hợp, yêu cầu phục dựng đủ bốn phòng |
 | `/result` | Kết quả, hai đoạn kết; chỉ mở sau Phòng Lõi |
 | `/demo` | Nhiệm vụ thử rút gọn của phòng 3, hai vai An/Minh |
@@ -70,6 +74,8 @@ Tab để di chuyển, Enter/Space để kích hoạt, Escape đóng dialog. Kh�
 Tiến độ mới dùng key `mln131-council-save-v2`. Không ghi đè hoặc xóa `mln131-escape-save-v1`, kể cả reset. Bản lưu cũ không tự chuyển thành kết quả điều tra. Lưu hỏng được báo và chưa bị thay đổi khi chỉ mở trang; thao tác mới mới ghi tiến độ V2 mới. Nếu lưu bị chặn, game vẫn chạy trong tab.
 
 Âm thanh/giảm chuyển động dùng key cài đặt riêng; bộ lọc và vị trí đọc Sổ chung lưu trong phiên. Demo có thể dùng cài đặt chung nhưng không truy cập key tiến độ V1/V2. Dữ liệu không chia sẻ giữa trình duyệt, thiết bị hoặc các origin như localhost và domain hosting.
+
+Gợi ý người mới dùng key riêng `mln131-guide-intro-v1`: ghi nhận khi đọc hướng dẫn hoặc đóng gợi ý bằng nút/Escape. Không ảnh hưởng save game; khi không lưu được, lựa chọn đóng vẫn có tác dụng trong tab hiện tại, kể cả chuyển sang demo. Tab Hướng dẫn luôn dùng được sau khi đóng gợi ý.
 
 ## Mã nguồn và tài nguyên
 
@@ -98,7 +104,7 @@ npm run build
 
 Bộ kiểm tra gồm luật/save V2, nội dung và nguồn tham chiếu, hồi quy dialog, tương tác, demo độc lập, lượt chơi qua bốn phòng/Phòng Lõi và hai kết thúc. Không dùng bài kiểm tra tự động để tuyên bố hiệu quả học tập.
 
-Kết quả hiện tại: lint PASS, 114 bài kiểm tra PASS, build PASS; kiểm tra Chromium production ở 1366/768/360px PASS. Đã kiểm tra phát cả hai bản nhạc miễn phí, chỉnh âm lượng không tua nhạc và hiển thị credit CC0. Lượt tải đầu khoảng 1,87 MB. Xem [báo cáo và ảnh kiểm tra](QA_REPORT.md).
+Kết quả hiện tại: lint PASS, 123 bài kiểm tra PASS, build PASS; kiểm tra Chromium production ở 1366/768/360px PASS. Đã kiểm tra phát cả hai bản nhạc miễn phí, chỉnh âm lượng không tua nhạc và hiển thị credit CC0. Lượt tải đầu khoảng 1,88 MB. Xem [báo cáo và ảnh kiểm tra](QA_REPORT.md).
 
 Trong Codex có primary runtime và Chromium của Playwright:
 
@@ -129,7 +135,7 @@ Chưa thực hiện chơi thử với năm sinh viên, chưa đo trung vị 25�
 
 ## Hosting sau này
 
-Chưa deploy hoặc tạo public URL. Khi nhóm cần, build `dist/` lên static hosting. Rewrite Vercel và `_redirects` cho SPA vẫn được giữ. Kiểm tra tải trực tiếp `/room/3`, `/codex`, `/demo`; luật mở khóa vẫn áp dụng.
+Chưa xác nhận public URL. Khi nhóm cần, build `dist/` lên static hosting. Rewrite Vercel và `_redirects` cho SPA vẫn được giữ. Kiểm tra tải trực tiếp `/room/3`, `/codex`, `/guide`, `/demo`; luật mở khóa vẫn áp dụng.
 
 PowerPoint và lệnh `slides` hiện còn thuộc V1, chưa làm lại theo Mật Mã Ký Ức — Hồ Sơ 2126 theo phạm vi bàn giao đã chốt.
 
