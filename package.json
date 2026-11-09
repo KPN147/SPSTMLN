@@ -5,16 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:presenter": "node scripts/dev-presenter.mjs",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "test": "vitest run",
+    "test": "vitest run && node --test server/*.node-test.mjs",
     "slides": "node scripts/slides.mjs",
     "check:browser": "node scripts/check-browser.mjs",
     "assets:art": "node scripts/prepare-art.mjs",
     "assets:audio": "node scripts/generate-audio.mjs",
     "assets:music": "node scripts/prepare-music.mjs",
-    "check:celebration": "node scripts/check-celebration.mjs"
+    "check:celebration": "node scripts/check-celebration.mjs",
+    "check:presenter": "node scripts/check-presenter.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.0",

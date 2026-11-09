@@ -16,7 +16,7 @@ describe('Hành trình V3 thực tế',()=>{
   render(<App/>);
   for(const r of rooms){expect(screen.getByRole('heading',{name:r.name})).toBeVisible();for(const t of r.steps){collectNeeded(t);answer(t);if(t!==r.steps[3])fireEvent.click(screen.getByRole('button',{name:'Tiếp tục'}));}const celebration=within(screen.getByRole('dialog'));fireEvent.click(celebration.getByRole('button',{name:'Bỏ qua hiệu ứng'}));fireEvent.click(celebration.getByRole('button',{name:r.id===4?'Đến Phòng Lõi':`Sang phòng ${r.id+1}`}));}
   for(const r of rooms){fireEvent.click(within(screen.getByRole('group',{name:'Các phần báo cáo'})).getByRole('button',{name:r.shortName}));answer(r.finalCase);}
-  fireEvent.click(screen.getByRole('button',{name:'Khôi phục thư viện'}));expect(screen.getByRole('heading',{name:'Thư viện đã sáng lại.'})).toBeVisible();expect(countGoals(parse(localStorage.getItem(SAVE_KEY)!))).toBe(16);
+  fireEvent.click(screen.getByRole('button',{name:'Khôi phục thư viện'}));const finale=within(screen.getByRole('dialog',{name:'Bạn đã hoàn thành hành trình'}));fireEvent.click(finale.getByRole('button',{name:'Bỏ qua hiệu ứng'}));fireEvent.click(finale.getByRole('button',{name:'Xem kết quả'}));expect(screen.getByRole('heading',{name:'Thư viện đã sáng lại.'})).toBeVisible();expect(countGoals(parse(localStorage.getItem(SAVE_KEY)!))).toBe(16);
  },20000);
  it('gợi ý theo nhu cầu không tự trả lời, câu đang làm giữ khi mở cẩm nang và tải lại',()=>{
   render(<App/>);const t=rooms[0].steps[0];collectNeeded(t);const ui=within(screen.getByRole('region',{name:t.title}));for(let n=0;n<3;n++)fireEvent.click(ui.getByRole('button',{name:/Cần gợi ý/}));fireEvent.click(ui.getByText('Xem lời giải và lý do'));expect(parse(localStorage.getItem(SAVE_KEY)!).rooms[1].answers).toEqual({});

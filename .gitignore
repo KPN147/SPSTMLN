@@ -66,3 +66,8 @@ Thumbs.db
 # Local teaching material and generated walkthroughs; not game runtime assets
 /MLN131 - Giao trinh CNXHKH.pdf
 /DAP_AN_*.md
+
+# Reassert safe templates after deployment tools add broad env rules.
+!.env.example
+!.env.sample
+!.env.template

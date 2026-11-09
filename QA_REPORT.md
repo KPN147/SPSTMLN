@@ -7,7 +7,7 @@ Cập nhật 09/11/2026. Bản mới áp dụng toàn hành trình theo lựa ch
 | Hạng mục | Kết quả |
 |---|---|
 | Lint | PASS |
-| Kiểm thử | PASS: 176 bài trong 13 file; gồm hồi quy và kiểm tra V3/cảnh phục dựng |
+| Kiểm thử | PASS: 192 bài trong 15 file Vitest + 13 bài API Node; gồm hồi quy, V3, admin và hai loại cảnh phục dựng |
 | Production build | PASS; tài nguyên cục bộ, không thêm thư viện |
 | Luồng chơi | PASS qua 16 mục tiêu và 4 phần Phòng Lõi bằng giao diện |
 | Hai kết thúc | PASS theo số thư; tải lại giữ kết quả |
@@ -18,6 +18,14 @@ Cập nhật 09/11/2026. Bản mới áp dụng toàn hành trình theo lựa ch
 | Lỗi JS/tài nguyên/CSP | 0 trong lượt Chromium đã kiểm tra |
 | Tải đầu | Khoảng 1,06 MB ở ba kích thước |
 | Chữ mặc định đầu phòng 1 | 427 → 67 từ, giảm 84,3% |
+| Thuyết trình local | PASS: HTTP thật, cookie bảo vệ, năm hiệu ứng, phát lại, hết phiên/khóa, không đọc/ghi tiến độ chính |
+| Cảnh kết | PASS: 9 giây, 3 lớp tranh mới, hai âm đúng một lần, bỏ qua/đóng/xem lại, giảm chuyển động, tab ẩn và ảnh lỗi |
+| Bí mật trong build | PASS: build với bí mật thử; không thấy mã, bản băm hoặc khóa phiên trong tài nguyên trình duyệt |
+| Vercel Production | PASS tại `https://spstmln-rho.vercel.app`: đăng nhập mã thật, API JSON, session/CSRF, năm hiệu ứng ở ba kích thước, tải lại, khóa và WAF 429 |
+
+Kiểm tra riêng thuyết trình bằng `check:presenter`: 13 ảnh tại 1366/768/360px, không lỗi JS/CSP, cookie HttpOnly/Secure/SameSite Strict; bản lưu V1/V2/V3 không được truy cập. Giới hạn truy cập trong lượt local là mô phỏng; trạng thái WAF thật được ghi riêng trong báo cáo Production. `check:browser` đạt trọn hành trình và hai kết thúc (20 ảnh); `check:celebration` đạt bốn phòng ở ba kích thước (19 ảnh). Các ảnh/báo cáo tự động nằm trong `output/qa/`, không đưa lên Git.
+
+`check-presenter-production.mjs` nhận mã qua stdin không echo, không lưu mã/cookie trong báo cáo. Đã chạy đạt trên Vercel thật, có ba ảnh cảnh kết và không lỗi JS/tài nguyên. Giới hạn WAF được thử bằng yêu cầu mã sai và đã trả HTTP429. Kiểm tra đăng xuất đợi máy chủ xác nhận trước khi kiểm tra cookie; giao diện khóa ngay trong lúc đợi mạng.
 
 Số từ được đo bằng văn bản hiển thị trong vùng main trước thao tác đầu tiên tại `/room/1`, cùng kích thước màn hình, tách theo khoảng trắng. Đây là phép đo giao diện đầu phòng, không phải giảm toàn bộ nội dung hoặc số đo mức hiểu.
 

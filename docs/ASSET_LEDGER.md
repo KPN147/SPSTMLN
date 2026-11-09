@@ -10,10 +10,15 @@ Công cụ: image generation tích hợp. Tạo mới theo bộ mẫu chung; kh�
 | `council.webp` | Bàn hội đồng | 2048×1152 |
 | `core.webp` | Phòng Lõi | 2048×1152 |
 | `hero.webp` | Bảng mẫu bốn nhân vật trong thư viện, dùng trên trang chủ | 2048×1365 |
+| `finale-hall.webp` | Đại sảnh mới, lớp nền cảnh kết | 2048×1152 |
+| `finale-core.webp` | Cơ cấu Phòng Lõi, giữ alpha | 900×1350 |
+| `finale-team.webp` | Bốn thành viên sau phục dựng, giữ alpha | 1600×1067 |
 | `portrait-an.webp`, `portrait-minh.webp`, `portrait-vy.webp`, `portrait-khoi.webp` | Mỗi tệp có năm biểu cảm trên atlas 3×2; ô cuối trống | 1152×768, giữ alpha |
 | `evidence-1.webp`…`evidence-4.webp` | Mỗi tệp có bảy hình chứng cứ trên atlas 4×2; ô cuối trống | 1536×768 |
 
 Atlas giúp dùng đủ 20 biểu cảm và 28 hình chứng cứ mà không tạo hàng chục yêu cầu tải. SVG của thiết bị, đường nối và giao diện là các lớp riêng có thể chỉnh sửa trong source. Không chèn chữ vào ảnh sinh.
+
+Ba tranh finale được tạo ngày 09/11/2026 bằng công cụ tạo ảnh tích hợp, dùng core/hero hiện có làm tham chiếu. Prompt: đại sảnh thư viện xanh đen và đồng cổ, khoảng giữa trống; cơ cấu tinh thể xanh ngọc với vòng đồng tách nền; bốn thành viên đúng tạo hình, ánh viền vàng, tách nền. Không sinh chữ. Tổng ba WebP 940.934 byte, dưới 3 MB; nạp theo nhu cầu khi mở Phòng Lõi, xem lại kết quả hoặc đăng nhập thuyết trình. Các lớp ánh sáng, bốn biểu tượng ký ức, đường nối và hạt được dựng CSS/SVG. Các tệp cuối ở `public/art/`, không phụ thuộc đường dẫn ảnh gốc của công cụ.
 
 `scripts/prepare-art.mjs` chỉ xuất/resize/nén các ảnh đã sinh; không gọi API tạo ảnh. Đầu vào cục bộ trong `scripts/art-inputs.local.json` bị bỏ qua bởi Git vì chứa đường dẫn máy. Không cần script này để chạy hoặc build game đã bàn giao. Các file cuối nằm trong dự án, không phụ thuộc thư mục ảnh của công cụ.
 

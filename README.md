@@ -103,7 +103,9 @@ Kiểm tra trình duyệt cần runtime Chromium/Playwright được cấu hình
 
 `npm run check:browser` chơi trọn hành trình và xử lý cảnh phục dựng. `npm run check:celebration` kiểm tra riêng bốn cảnh bừng sáng ở 1366/768/360px, các mốc chuyển động, bỏ qua/đóng/đi tiếp, focus, âm thanh và giảm chuyển động. Báo cáo cùng ảnh nằm trong `output/qa/`.
 
-Build `dist/` lên static hosting; rewrite SPA trong Vercel và `_redirects` được giữ. Kiểm tra tải trực tiếp `/room/3`, `/codex`, `/guide`, `/demo`, cùng luật mở khóa. Chưa xác nhận public URL trong tài liệu này.
+Triển khai toàn dự án lên Vercel để chạy cả game và API đăng nhập tại `/admin`. Static hosting chỉ phục vụ được game; bảng thuyết trình cần phần máy chủ. Đường dẫn hiện tại: `https://spstmln-rho.vercel.app`. Cách cấu hình và sử dụng ở [hướng dẫn thuyết trình](docs/PRESENTER.md). Giữ các đường dẫn `/room/3`, `/codex`, `/guide`, `/demo` cùng luật mở khóa.
+
+`npm run dev:presenter` chạy game và API trên local khi có cấu hình bí mật riêng. `npm run check:presenter` kiểm tra đăng nhập và năm hiệu ứng ở ba kích thước, quét bí mật thử trong bản build. Cảnh kết toàn thư viện dài chín giây, có bỏ qua và xem lại từ màn kết quả.
 
 Tạo lại tài nguyên là việc phát triển tùy chọn (`assets:art`, `assets:audio`, `assets:music`), không phải bước cài đặt game. Nguồn, giấy phép và thay đổi âm thanh ở `public/audio/CREDITS.md`.
 

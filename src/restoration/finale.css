@@ -1,0 +1,58 @@
+.finale{position:relative;isolation:isolate;min-height:100dvh;padding:66px 24px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#080f1d;overflow:hidden}
+.finale-stage{position:relative;isolation:isolate;width:min(1200px,100%,calc((100dvh - 390px)*16/9));aspect-ratio:16/9;border:1px solid #d9b56e50;border-radius:8px;overflow:hidden;background:radial-gradient(ellipse,#1e3845,#101b2e);box-shadow:0 0 90px #d9b56e18}
+.finale-camera{position:absolute;inset:0;transform-origin:50% 47%}
+.finale-hall,.finale-fallback{position:absolute;width:100%;height:100%;object-fit:cover;inset:0}
+.finale-hall{filter:brightness(.42) saturate(.7)}
+.finale-core{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);width:27%;height:83%;object-fit:contain;filter:brightness(.6);opacity:.8}
+.finale-team{position:absolute;left:50%;bottom:-2%;width:62%;height:54%;object-fit:contain;object-position:bottom;transform:translateX(-50%);opacity:0}
+.finale-fallback{filter:brightness(.5)}
+.uses-fallback .finale-hall,.uses-fallback .finale-core,.uses-fallback .finale-team{visibility:hidden}
+.finale-magic{position:absolute;inset:0;pointer-events:none}
+.finale-connections{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.finale-connections path{fill:none;stroke:var(--memory-color);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 4px var(--memory-color));opacity:0}
+.finale-memory{position:absolute;left:var(--memory-x);top:var(--memory-y);transform:translate(-50%,-50%) scale(.8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--memory-color);background:#0c1727e6;border:1px solid var(--memory-color);width:100px;height:100px;border-radius:50%;box-shadow:0 0 25px color-mix(in srgb,var(--memory-color) 25%,transparent);opacity:.15}
+.finale-memory span{font-size:11px;text-align:center;line-height:1.4;max-width:90px}
+.finale-orbit{position:absolute;left:50%;top:48%;width:28%;aspect-ratio:1;border:1px solid #f6d592;border-radius:50%;transform:translate(-50%,-50%) rotateX(65deg) rotate(0);box-shadow:0 0 16px #f9d58b44;opacity:0}
+.finale-orbit.second{width:37%;border-style:dashed}
+.finale-bloom{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,#ffe4a94d,transparent 66%);mix-blend-mode:screen;opacity:0}
+.finale-wave{position:absolute;width:10%;aspect-ratio:1;left:50%;top:48%;border:2px solid #f9dea3;border-radius:50%;box-shadow:0 0 50px #e7c27b40,inset 0 0 40px #e7c27b20;transform:translate(-50%,-50%) scale(.2);opacity:0}
+.finale-particles{position:absolute;inset:0}
+.finale-particles i{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);background:#ffe7b3;border-radius:50%;box-shadow:0 0 8px #e4c481;opacity:0}
+.finale-vignette{position:absolute;inset:0;background:linear-gradient(0deg,#080f1d4d,transparent 35%);pointer-events:none}
+.finale-message{position:relative;text-align:center;max-width:800px;z-index:2}
+.finale-message .eyebrow{justify-content:center;font-size:11px;margin-bottom:8px}
+.finale-message h3{font-size:clamp(30px,3.5vw,48px);line-height:1.2;margin-bottom:8px}
+.finale-message>p:not(.eyebrow){font-size:17px;color:#c5cfdd}
+.finale-stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:12px;color:#becade;font-size:14px}
+.finale-stats strong{color:#f5db9e;font-weight:600;margin-right:4px}
+.finale-error-icon{position:absolute;inset:0;margin:auto;color:var(--gold)}
+.is-awakening .finale-camera{animation:finale-camera 9s ease-in-out both}
+.is-awakening .finale-hall,.is-awakening .finale-fallback{animation:finale-illuminate 3s 4.5s ease-out both}
+.is-awakening .finale-core{animation:finale-core-light 3s 3s ease-out both}
+.is-awakening .finale-team{animation:finale-team-reveal 1.4s 6.5s ease-out both}
+.is-awakening .finale-memory{animation:finale-memory 4.6s calc(.6s + var(--order)*.28s) ease-in-out both}
+.is-awakening .finale-connections path{animation:finale-link 4s calc(1.25s + var(--order)*.25s) ease-in-out both}
+.is-awakening .finale-orbit{animation:finale-orbit 4.5s 2.5s ease-in-out both}
+.is-awakening .finale-orbit.second{animation-direction:reverse}
+.is-awakening .finale-bloom{animation:finale-bloom 4s 4.5s ease-out both}
+.is-awakening .finale-wave{animation:finale-wave 2s 5s ease-out both}
+.is-awakening .finale-particles i{animation:finale-particle 2.2s var(--delay) ease-out both}
+.is-awakening .finale-message{animation:room-awaken-message 1s 7.7s ease-out both}
+.is-ready .finale-hall,.is-ready .finale-fallback{filter:brightness(1.03) saturate(1.1)}
+.is-ready .finale-core{filter:brightness(1.06);opacity:1}
+.is-ready .finale-team{opacity:1}
+.is-ready .finale-magic{display:none}
+.is-reduced *{animation:none!important}
+.is-reduced .finale-magic{display:none}
+@keyframes finale-camera{0%,10%{transform:scale(1)}58%{transform:scale(1.03)}100%{transform:scale(1)}}
+@keyframes finale-illuminate{from{filter:brightness(.42) saturate(.7)}to{filter:brightness(1.03) saturate(1.1)}}
+@keyframes finale-core-light{from{filter:brightness(.6);opacity:.8}to{filter:brightness(1.06);opacity:1}}
+@keyframes finale-team-reveal{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}
+@keyframes finale-memory{0%{opacity:.15;transform:translate(-50%,-50%) scale(.8)}30%,60%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.65)}}
+@keyframes finale-link{0%{stroke-dashoffset:1;opacity:0}30%,65%{opacity:.8;stroke-dashoffset:0}100%{opacity:0;stroke-dashoffset:0}}
+@keyframes finale-orbit{0%{opacity:0;transform:translate(-50%,-50%) rotateX(65deg) rotate(0)}30%,70%{opacity:.7}100%{opacity:0;transform:translate(-50%,-50%) rotateX(65deg) rotate(110deg)}}
+@keyframes finale-bloom{0%{opacity:0}30%{opacity:1}100%{opacity:.15}}
+@keyframes finale-wave{0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}20%{opacity:.65}100%{opacity:0;transform:translate(-50%,-50%) scale(15)}}
+@keyframes finale-particle{0%{opacity:0;transform:translate(0,0)}20%{opacity:.85}100%{opacity:0;transform:translate(var(--drift),-95px)}}
+@media(max-width:760px){.finale{padding:82px 16px 26px;gap:24px;justify-content:center}.finale-stage{width:100%;aspect-ratio:4/3}.finale-hall,.finale-fallback{object-position:50% 50%}.finale-core{width:43%;height:86%;bottom:5%}.finale-team{width:96%;height:48%;bottom:0}.finale-memory{width:62px;height:62px;gap:4px}.finale-memory svg{width:19px;height:19px}.finale-memory span{font-size:9px;max-width:55px}.finale-message h3{font-size:32px}.finale-message .eyebrow{font-size:10px;letter-spacing:.07em}.finale-stats{gap:8px 14px;font-size:13px}.finale-stats span:last-child{flex-basis:100%}.finale-particles i:nth-child(n+29){display:none}}
+@media(max-height:540px) and (min-width:760px){.finale{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;padding:70px 32px 20px}.finale-stage{width:100%;grid-row:1/3}.finale-message h3{font-size:30px}.finale-message .eyebrow{font-size:9px}.finale-stats{gap:8px;font-size:12px}.finale .celebration-actions{flex-direction:column}}

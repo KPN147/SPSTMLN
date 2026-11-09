@@ -1,8 +1,14 @@
-# Only upload files required to build the static game.
+# Only upload files required to build the game and server function.
 # Git ignore rules alone are not the deployment boundary.
 /*
-!/src/
-!/public/
+!/src
+!/src/**
+!/public
+!/public/**
+!/api
+!/api/**
+!/server
+!/server/**
 !/index.html
 !/package.json
 !/package-lock.json
@@ -29,3 +35,5 @@
 **/private/
 **/secrets/
 **/*.log
+**/*.test.*
+**/*.node-test.*
