@@ -1,3 +1,50 @@
+# Kiểm tra bàn giao — Mật Mã Ký Ức V3
+
+Cập nhật 09/11/2026. Bản mới áp dụng toàn hành trình theo lựa chọn của người phụ trách; chơi thử với sinh viên thực hiện sau, chưa có kết quả.
+
+## Kết quả kỹ thuật V3
+
+| Hạng mục | Kết quả |
+|---|---|
+| Lint | PASS |
+| Kiểm thử | PASS: 162 bài trong 12 file; 123 hồi quy bản trước và 39 kiểm tra V3 |
+| Production build | PASS; tài nguyên cục bộ, không thêm thư viện |
+| Luồng chơi | PASS qua 16 mục tiêu và 4 phần Phòng Lõi bằng giao diện |
+| Hai kết thúc | PASS theo số thư; tải lại giữ kết quả |
+| 1366/768/360px | PASS; không tràn ngang, chữ điều khiển/nội dung tối thiểu 16px |
+| Chuyển bản | PASS cả tiếp tục và bắt đầu mới; V1/V2 được giữ; phát hiện nhập có nhãn |
+| Dữ liệu lỗi/chặn lưu | PASS; không tự ghi đè; vẫn chơi trong tab |
+| Demo | PASS quyết định–căn cứ–lý do; không đọc/ghi key tiến độ chính |
+| Lỗi JS/tài nguyên/CSP | 0 trong lượt Chromium đã kiểm tra |
+| Tải đầu | Khoảng 1,06 MB ở ba kích thước |
+| Chữ mặc định đầu phòng 1 | 427 → 67 từ, giảm 84,3% |
+
+Số từ được đo bằng văn bản hiển thị trong vùng main trước thao tác đầu tiên tại `/room/1`, cùng kích thước màn hình, tách theo khoảng trắng. Đây là phép đo giao diện đầu phòng, không phải giảm toàn bộ nội dung hoặc số đo mức hiểu.
+
+## Nội dung và trải nghiệm
+
+- Giữ 4 phòng/16 ID học tập. Mỗi bước có tình huống, khái niệm, nguồn, lựa chọn, phản hồi và phát hiện được dùng tiếp. Quan hệ bối cảnh và chứng minh được tách rõ.
+- Nội dung chính của mỗi bước tối đa 117 từ theo bộ kiểm tra (giới hạn150), khái niệm36–40 từ, phản hồi tối đa35 từ. Diễn giải và lời giải mở theo nhu cầu.
+- Hội đồng hiển thị lần lượt quyết định, căn cứ và lý do; từ chối căn cứ không liên quan hoặc lý do không phù hợp. Có các căn cứ thay thế hợp lệ và kiểm tra tất cả tổ hợp.
+- Không yêu cầu thu thập bốn hồ sơ trước khi chơi; từng bước đưa tới tài liệu còn thiếu. Kiến thức mục tiêu thứ tư xuất hiện ở hội đồng; hồ sơ mục tiêu thứ ba chỉ hiện kiến thức tương ứng.
+- Phòng Lõi dùng bốn tình huống mới. Sổ chung ghi nguồn gốc/nơi dùng các phát hiện; thư bổ sung đoạn kết, không chặn tiến trình chính.
+- Ảnh minh họa được tái sử dụng; trạng thái sáng của cảnh thay đổi theo tiến độ. Trên điện thoại, việc cần làm hiển thị trước cảnh; thứ tự bàn phím theo thứ tự nội dung.
+
+## Bằng chứng kiểm tra
+
+`npm run check:browser` kiểm tra bản production với header Vercel trên local, ghi `output/qa/browser-report.json` và20ảnh. Các bước chủ yếu được chơi bằng thao tác thực; fixture chỉ dùng kiểm tra hồi tải/dữ liệu và ảnh trạng thái.
+
+Ảnh tiêu biểu: `v3-initial-1366.png`, `v3-initial-360.png`, `v3-task-360.png`, `v3-restored-3.png`, `v3-ending-letters.png`, `v3-demo-complete.png`. Kiểm tra bố cục riêng có báo cáo `output/qa/v3-layout-report.json` và ảnh ba phần hội đồng. Đã xem trực tiếp ảnh desktop/mobile để kiểm tra xuống dòng và vị trí thao tác.
+
+Đối chiếu ảnh scan thực tế được ghi trong [SOURCE_REVIEW_V3.md](docs/SOURCE_REVIEW_V3.md); ánh xạ mục tiêu tại [CONTENT_MAPPING_V3.md](CONTENT_MAPPING_V3.md). Trạng thái vẫn **0 verified /16 needs-review**.
+
+## Cần xác nhận với người tham gia
+
+Chưa chơi thử với năm sinh viên, chưa đo thời gian trung vị25–35phút, chưa xác nhận4/5người hiểu/vận dụng được hoặc mức quá tải1–2/5. Chưa kiểm tra điện thoại vật lý; touch hiện là mô phỏng Chromium. Phiếu và tiêu chí có trong [PLAYTEST.md](docs/PLAYTEST.md). Chưa xác nhận domain Vercel thực tế; kiểm thử local không chứng minh trạng thái hosting.
+
+<details>
+<summary>Lịch sử kiểm tra V2 — số liệu và giao diện trước khi thiết kế lại</summary>
+
 # Kiểm tra bàn giao — Mật Mã Ký Ức — Hồ Sơ 2126 V2
 
 Ghi nhận ban đầu: 08/11/2026; cập nhật gần nhất: 09/11/2026. Đây là kết quả kỹ thuật thực tế, không phải khảo sát hiệu quả học tập.
@@ -105,3 +152,5 @@ Ghi nhận ban đầu: 08/11/2026; cập nhật gần nhất: 09/11/2026. Đây 
 - Chưa quan sát năm sinh viên, chưa có số liệu thời lượng trung vị hoặc mức hấp dẫn. Dùng `docs/PLAYTEST.md` để thực hiện.
 - Nội dung học thuật giữ 0 verified / 16 needs-review; cần duyệt đầy đủ với nguồn thực tế.
 - Chưa deploy public; PowerPoint cũ vẫn là bản V1 theo phạm vi đã chốt.
+
+</details>

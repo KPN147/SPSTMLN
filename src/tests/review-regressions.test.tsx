@@ -1,6 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
-import App from '../App';
+// V2 UI remains under regression to validate the preserved migration source.
+import App from '../council/Application';
 import { Dialog } from '../components/Dialog';
 import { puzzles } from '../data/puzzles';
 

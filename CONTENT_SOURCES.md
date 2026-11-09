@@ -1,6 +1,20 @@
 # Bảng nguồn học thuật
 
+## Hành trình V3 hiện tại
+
+V3 giữ đủ 16 mục tiêu và ID trong bảng nguồn. Kịch bản hiện tại nằm trong `src/restoration/curriculum.ts`; quan hệ giữa câu hỏi, khái niệm, phát hiện và nơi dùng tiếp được ghi tại [CONTENT_MAPPING_V3.md](CONTENT_MAPPING_V3.md).
+
+- Mỗi phòng có bốn bước. Ba bước đầu kết hợp dữ kiện với kiến thức cần dùng; bước thứ tư là hội đồng **quyết định → căn cứ → lý do**. Không yêu cầu thu thập mọi hồ sơ trước khi bắt đầu bài đầu.
+- Mỗi bước tham chiếu một ID nguồn học thuật riêng. Phần p4 được đưa vào hội đồng; hồ sơ p3 không tự hiển thị phần p4 gộp thêm trong dữ liệu V2.
+- Mỗi câu có tình huống, khái niệm ngắn, câu hỏi, phản hồi theo lựa chọn và phát hiện. `context` biểu diễn bối cảnh hồ sơ; `supports` biểu diễn quan hệ căn cứ trực tiếp. Chỉ những cặp căn cứ–lý do được khai báo phù hợp mới được chấp nhận.
+- Phòng Lõi là bốn đoạn mới: sửa chú giải niên đại, bổ sung tiêu chí nhận diện hồ sơ nhân sự, kiểm tra điều kiện xuất phát của tuyến chuyển tiếp và nối các hình thức tham gia với cơ chế thực hiện. Dùng lại các nguồn đã học, không thêm khái niệm mới. Demo V3 dùng hai hồ sơ của phòng 3 và nguồn khái niệm ở trang in 110–112.
+- Phát hiện được chuyển từ bản V2 có nhãn kế thừa. Không coi việc chuyển bản lưu là xác nhận người chơi vừa trả lời những câu V3.
+
+Ngày 09/11/2026 đã kiểm tra thêm các ảnh scan nguồn đại diện; xem [docs/SOURCE_REVIEW_V3.md](docs/SOURCE_REVIEW_V3.md). Việc này không thay thế xác nhận học thuật cuối cùng: **0 verified / 16 needs-review**.
+
 ## Cập nhật Mật Mã Ký Ức — Hồ Sơ 2126 V2
+
+Phần này ghi nhận kiến trúc bản V2 để đọc dữ liệu cũ; không mô tả giao diện và trình tự V3 hiện tại.
 
 Giữ đủ 16 mục tiêu học và trang nguồn trong bảng dưới. Các ID `rN-p1`, `rN-p2`, `rN-p3` nay mở sau ba bước kiểm chứng; `rN-p4` mở sau phiên hội đồng của chương N. Cơ chế trong bảng cũ là dạng tham chiếu V1, không mô tả luồng chơi V2.
 
@@ -16,9 +30,9 @@ Tệp thực tế có **273 trang PDF**. Game chỉ dùng phạm vi Chương 1�
 
 Trong phạm vi đang dùng, trang PDF tính từ 1 theo quy đổi `pdfPage = printedPage - 3`. Ví dụ đã xem: PDF 8 là trang in 11, PDF 122 là trang in 125 và PDF 150 là trang in 153. Giao diện game hiển thị **trang in**.
 
-## Nguồn của 16 câu
+## Nguồn của 16 mục tiêu — giữ nguyên qua các phiên bản
 
-Các khoảng dưới đây được lưu dưới dạng mảng số trang đầy đủ trong `src/data/puzzles.ts`, bao gồm cả hai đầu khoảng. `needs-review` nghĩa là chưa có xác nhận cuối cùng của người phụ trách học thuật.
+Các khoảng dưới đây được lưu dưới dạng mảng số trang đầy đủ trong `src/data/puzzles.ts`, bao gồm cả hai đầu khoảng. Tên câu và cột cơ chế là tham chiếu V1; ánh xạ cách chơi V3 ở bảng riêng nêu trên. `needs-review` nghĩa là chưa có xác nhận cuối cùng của người phụ trách học thuật.
 
 | ID | Câu đố | Cơ chế | Chương | Trang in | Trang PDF (1-based) | Trạng thái |
 |---|---|---|---:|---|---|---|
@@ -39,7 +53,7 @@ Các khoảng dưới đây được lưu dưới dạng mảng số trang đầ
 | r4-p3 | Bản đồ chức năng Nhà nước | matching | 4 | 144–145 | 141–142 | needs-review |
 | r4-p4 | Khóa nền tảng dân chủ | evidence-lock | 4 | 147–148, 153 | 144–145, 150 | needs-review |
 
-Final ghép bốn chủ đề với bốn mảnh tri thức, không tính vào 16 câu. Nguồn tổng hợp: Chương 1–4, trang in 11–153 (PDF 8–150). Mini demo dùng hai thẻ của R4-P2, nguồn khái niệm ở trang in 153 (PDF 150).
+Trong bản V1 lịch sử, Final ghép bốn chủ đề với bốn mảnh tri thức và demo dùng hai thẻ R4-P2. Cơ chế ấy không áp dụng cho Final/demo V3 hiện tại. Nguồn V3 của từng đoạn được ghi cụ thể trong CONTENT_MAPPING_V3.md.
 
 ## Đối chiếu đã thực hiện
 
@@ -60,7 +74,7 @@ Hình phục vụ kiểm tra được lưu tạm ở `.build/source-review/` và
 
 - Các trường `readingNote`, `explanation` và `keyTakeaways` là diễn giải phục vụ học tập; người duyệt cần kiểm tra tính đúng nghĩa, phạm vi và sự phù hợp với nguồn.
 - Tên phòng, mật mã, cánh cửa, hồ sơ bị lỗi, mảnh tri thức và bối cảnh năm 2126 là yếu tố hư cấu, không phải dữ kiện giáo trình.
-- Tình huống biểu quyết và đại biểu trong R4-P2 và `/demo` là **ví dụ minh họa do nhóm xây dựng, không phải ví dụ nguyên văn của giáo trình**. Cần giữ điều kiện về thẩm quyền và quy trình khi diễn giải.
+- Tình huống biểu quyết và đại biểu trong R4-P2, các đoạn Phòng Lõi và demo là **ví dụ minh họa do nhóm xây dựng, không phải ví dụ nguyên văn của giáo trình**. Cần giữ điều kiện về thẩm quyền và quy trình khi diễn giải hình thức dân chủ; demo hiện tại minh họa lệnh xử lý hồ sơ của phòng 3.
 - Tài liệu bổ sung tại khóa R2-P4, R3-P4 và R4-P4 giúp người chưa đọc sách có đủ dữ kiện suy luận; nguồn vẫn là các trang đã ghi của chính câu đó.
 - Bốn chủ đề ở Final không biểu diễn quan hệ nhân quả đơn tuyến. Điểm game không phải kết quả kiểm tra học thuật chính thức.
 
@@ -73,5 +87,6 @@ Hình phục vụ kiểm tra được lưu tạm ở `.build/source-review/` và
 5. Xác nhận lời giải không đưa thêm kết luận chính sách hoặc suy diễn ngoài phạm vi nguồn; giữ rõ các ví dụ minh họa.
 6. Sau khi duyệt, ghi người duyệt, ngày duyệt và ghi chú thực tế; mới cập nhật `sourceReviewStatus` của câu sang `verified` trong nguồn dữ liệu/sinh dữ liệu và bảng này.
 7. Chạy lại `npm run test` và `npm run build` sau mọi thay đổi nội dung. Nếu test mặc định đang yêu cầu `needs-review`, cập nhật kiểm tra trạng thái theo kết quả duyệt thực tế, không đổi trạng thái để chỉ làm test đạt.
+8. Với V3, soát thêm `concept`, `scenario`, từng lựa chọn sai, căn cứ, lý do, phát hiện và cạnh `usesFindings`. Phân biệt quan hệ bối cảnh với quan hệ chứng minh; kiểm tra các đoạn Phòng Lõi chỉ vận dụng kiến thức đã được cung cấp trước đó.
 
 Không có tên người duyệt hoặc ngày xác nhận được điền sẵn vì chưa nhận được xác nhận học thuật.

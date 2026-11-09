@@ -50,7 +50,7 @@ export function GuideNavItem() {
       <button className="icon-button guide-intro-close" onClick={dismissAndFocus} aria-label="Đóng gợi ý hướng dẫn"><X size={18}/></button>
       <p className="eyebrow">LẦN ĐẦU CHƠI?</p>
       <h2>Bắt đầu từ Hướng dẫn</h2>
-      <p id={descriptionId}>Bấm tab <strong>Hướng dẫn</strong> ngay phía trên để hiểu bối cảnh, mục tiêu và cách qua từng phòng trước khi chơi.</p>
+      <p id={descriptionId}>Bấm tab <strong>Hướng dẫn</strong> để xem cách chơi. Bạn cũng có thể bắt đầu ngay.</p>
       <div className="guide-intro-actions"><Link className="button" to="/guide" state={{ guideFrom: pathname }} onClick={dismissHint}>Đọc hướng dẫn<ArrowRight size={16}/></Link><button className="text-button" onClick={dismissAndFocus}>Để sau</button></div>
     </aside>}
   </div>;

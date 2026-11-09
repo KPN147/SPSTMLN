@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
-import { BrowserRouter, Link, NavLink, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, BookOpen, Check, Compass, Fingerprint, LockKeyhole, Map, Moon, RotateCcw, Settings2, Sparkles, Users, Volume2, VolumeX, X } from 'lucide-react';
+import { BrowserRouter, Link, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, BookOpen, Check, Compass, Fingerprint, LockKeyhole, Sparkles, Users, X } from 'lucide-react';
 import { Dialog } from '../components/Dialog';
 import { AudioProvider, useAudio } from './Audio';
 import { CouncilProvider, useCouncil } from './GameStore';
@@ -12,17 +12,12 @@ import { Portrait } from './Visuals';
 import { MusicCredits } from './MusicCredits';
 import { HowToPlay } from './HowToPlay';
 import { GuidePage } from './GuidePage';
-import { GuideNavItem, GuideOnboardingProvider } from './GuideOnboarding';
+import { GuideOnboardingProvider } from './GuideOnboarding';
+import { Header, Footer } from './Chrome';
+export { Brand, Header, Footer } from './Chrome';
 import { brand } from './brand';
 import { RoomRoute, FinalPage, ResultPage, DemoPage } from './RoomPages';
 
-export function Brand() { return <Link className="brand" to="/" aria-label={`${brand.fullTitle} — Trang chủ`}><span className="brand-emblem"><Compass size={26}/></span><span>{brand.logoTop}<small>{brand.logoBottom}</small></span></Link>; }
-export function Header({ restored, onReset }: { restored?: number; onReset?: () => void }) {
-  const { settings, update } = useAudio();
-  const [preferences, setPreferences] = useState(false);
-  return <><header className="site-header"><div className="header-inner"><Brand/><nav aria-label="Điều hướng chính"><NavLink to="/play" aria-label="Bản đồ"><Map size={16}/><span>Bản đồ</span></NavLink><NavLink to="/codex" aria-label="Sổ chung"><BookOpen size={16}/><span>Sổ chung</span></NavLink><GuideNavItem/></nav><div className="header-tools">{restored !== undefined && <span className="header-progress"><span className="live-dot"/>{restored}<small>/4 khu vực</small></span>}<button className="icon-button" aria-label={settings.muted ? 'Bật âm thanh' : 'Tắt âm thanh'} onClick={() => update({ muted: !settings.muted })}>{settings.muted ? <VolumeX size={18}/> : <Volume2 size={18}/>}</button><button className="icon-button" aria-label="Cài đặt trải nghiệm" onClick={() => setPreferences(true)}><Settings2 size={18}/></button>{onReset && <button className="icon-button reset-button" aria-label="Chơi lại hành trình mới" onClick={onReset}><RotateCcw size={17}/></button>}</div></div></header>{preferences && <Dialog title="Cài đặt trải nghiệm" onClose={() => setPreferences(false)}><div className="settings-panel"><label className="setting-check"><input type="checkbox" checked={!settings.muted} onChange={e => update({ muted: !e.target.checked })}/><span><Volume2 size={18}/>Bật âm thanh</span></label><label>Nhạc nền <output>{Math.round(settings.music * 100)}%</output><input aria-label="Âm lượng nhạc nền" type="range" min="0" max="1" step="0.05" value={settings.music} onChange={e => update({ music: Number(e.target.value) })}/></label><label>Hiệu ứng <output>{Math.round(settings.effects * 100)}%</output><input aria-label="Âm lượng hiệu ứng" type="range" min="0" max="1" step="0.05" value={settings.effects} onChange={e => update({ effects: Number(e.target.value) })}/></label><label className="setting-check"><input type="checkbox" checked={settings.reducedMotion} onChange={e => update({ reducedMotion: e.target.checked })}/><span><Moon size={18}/>Giảm chuyển động</span></label><p className="muted">Mọi thông tin đều có bằng chữ. Bạn có thể chơi khi tắt âm hoặc giảm chuyển động.</p></div></Dialog>}</>;
-}
-export function Footer() { return <footer className="site-footer"><Brand/><span>{brand.tagline}</span><Link to="/about">Về trò chơi & nguồn<BookOpen size={14}/></Link><small>MLN131 · HỒ SƠ 2126</small></footer>; }
 function MainLayout() { return <CouncilProvider><Shell/></CouncilProvider>; }
 function Shell() {
   const { save, dispatch, notice, dismissNotice } = useCouncil(), { audioNotice } = useAudio();

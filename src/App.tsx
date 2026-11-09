@@ -1,2 +1,2 @@
-import Application from './council/Application';
+import Application from './restoration/Application';
 export default function App() { return <Application/>; }

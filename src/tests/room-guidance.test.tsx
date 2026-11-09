@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { beforeEach, describe, expect, it } from 'vitest';
-import App from '../App';
+// V2 UI remains under regression to validate the preserved migration source.
+import App from '../council/Application';
 import { chapters } from '../council/content';
 import { newCouncilGame, SAVE_KEY_V2 } from '../council/engine';
 import { prepareChapter } from './council-fixtures';
