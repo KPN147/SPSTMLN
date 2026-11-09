@@ -7,11 +7,12 @@ import type { Answer, Feedback, Save } from './engine';
 import type { LearningStep } from './model';
 
 export function Source({id}:{id:string}) {const p=puzzles.find(p=>p.id===id)!;return <details className="v3-source"><summary><BookOpen size={15}/>Diễn giải đầy đủ và nguồn</summary><p>{p.readingNote}</p><p>{p.explanation}</p><small>{p.source.book} · Chương {p.source.chapter} · Trang in {p.source.printedPages.join(', ')}. Diễn giải đang chờ duyệt đối chiếu nguồn.</small></details>;}
-export function StepPanel({task:t,save,answer:stored,help,done,onAnswer,onHelp,onSubmit,onContinue}:{task:LearningStep;save:Save;answer?:Answer;help:number;done:boolean;onAnswer:(a:Answer)=>void;onHelp:()=>void;onSubmit:()=>void;onContinue:()=>void}) {
+export function StepPanel({task:t,save,answer:stored,help,done,onAnswer,onHelp,onSubmit,onContinue,successSound=true}:{task:LearningStep;save:Save;answer?:Answer;help:number;done:boolean;onAnswer:(a:Answer)=>void;onHelp:()=>void;onSubmit:()=>void;onContinue:()=>void;successSound?:boolean}) {
   const a=stored??emptyAnswer(),i=t.interaction,{play}=useAudio(),[selected,setSelected]=useState<string|null>(null),[feedback,setFeedback]=useState<Feedback|null>(null),ref=useRef<HTMLElement>(null);
   function change(next:Answer){onAnswer(next);setFeedback(null);play('select');}
   function page(n:number){change({...a,page:n});setTimeout(()=>{ref.current?.scrollIntoView({block:'start',behavior:'auto'});ref.current?.focus({preventScroll:true});},0);}
-  function submit(){const result=judge(t,a,save);setFeedback(result);play(result.ok?'insight':'reject');if(result.ok)onSubmit();}
+  const accepted=useRef(false);
+  function submit(){if(accepted.current||done)return;const result=judge(t,a,save);setFeedback(result);if(result.ok){accepted.current=true;if(successSound)play('insight');onSubmit();}else play('reject');}
   const known=findings(save),links=t.usesFindings.map(link=>({link,found:known.find(f=>f.id===link.id)})).filter(v=>v.found);
   const sample=i.kind==='council'?i.proofOptions.find(p=>p.reasonIds.length&&proofAvailable(save,t,p.id)):null;
   return <section className="v3-step" ref={ref} tabIndex={-1} aria-label={t.title}>

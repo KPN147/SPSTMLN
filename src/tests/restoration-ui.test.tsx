@@ -14,7 +14,7 @@ function answer(t:LearningStep){const ui=within(screen.getByRole('region',{name:
 describe('Hành trình V3 thực tế',()=>{
  it('đi hết16mục tiêu và bốn tình huống cuối bằng giao diện',()=>{
   render(<App/>);
-  for(const r of rooms){expect(screen.getByRole('heading',{name:r.name})).toBeVisible();for(const t of r.steps){collectNeeded(t);answer(t);if(t!==r.steps[3])fireEvent.click(screen.getByRole('button',{name:'Tiếp tục'}));}fireEvent.click(screen.getByRole('button',{name:r.id===4?'Đến Phòng Lõi':`Sang phòng ${r.id+1}`}));}
+  for(const r of rooms){expect(screen.getByRole('heading',{name:r.name})).toBeVisible();for(const t of r.steps){collectNeeded(t);answer(t);if(t!==r.steps[3])fireEvent.click(screen.getByRole('button',{name:'Tiếp tục'}));}const celebration=within(screen.getByRole('dialog'));fireEvent.click(celebration.getByRole('button',{name:'Bỏ qua hiệu ứng'}));fireEvent.click(celebration.getByRole('button',{name:r.id===4?'Đến Phòng Lõi':`Sang phòng ${r.id+1}`}));}
   for(const r of rooms){fireEvent.click(within(screen.getByRole('group',{name:'Các phần báo cáo'})).getByRole('button',{name:r.shortName}));answer(r.finalCase);}
   fireEvent.click(screen.getByRole('button',{name:'Khôi phục thư viện'}));expect(screen.getByRole('heading',{name:'Thư viện đã sáng lại.'})).toBeVisible();expect(countGoals(parse(localStorage.getItem(SAVE_KEY)!))).toBe(16);
  },20000);

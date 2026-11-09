@@ -35,7 +35,7 @@ try{
   await solve(p,t);if(t!==r.steps[3])await p.getByRole('button',{name:'Tiếp tục',exact:true}).click();
   if(t===r.steps[1]){await p.getByText('Các điểm khám phá',{exact:true}).click();await p.getByRole('button',{name:new RegExp('Thư 0'+r.id)}).click();await p.getByRole('dialog').getByRole('button',{name:/^Ghi nhận chứng cứ/}).click();}
  }
- await capture(p,'v3-restored-'+r.id);await p.getByRole('button',{name:r.id===4?'Đến Phòng Lõi':`Sang phòng ${r.id+1}`,exact:true}).click();}
+ const celebration=p.getByRole('dialog');await celebration.getByRole('button',{name:'Bỏ qua hiệu ứng',exact:true}).click();await capture(p,'v3-restored-'+r.id);await celebration.getByRole('button',{name:r.id===4?'Đến Phòng Lõi':`Sang phòng ${r.id+1}`,exact:true}).click();}
  for(const r of rooms){await p.getByRole('group',{name:'Các phần báo cáo'}).getByRole('button',{name:new RegExp(escape(r.shortName))}).click();await solve(p,r.finalCase);}
  await p.getByRole('button',{name:'Khôi phục thư viện',exact:true}).click();await p.getByRole('heading',{name:'Ký ức được nối lại.',exact:true}).waitFor();await p.reload();await capture(p,'v3-ending-letters');const saved=await p.evaluate(key=>localStorage.getItem(key),SAVE_KEY);assert(JSON.parse(saved).finalComplete);
  await p.goto(base+'/demo');await p.getByRole('button',{name:/Ghi nhận chứng cứ/}).click();await p.getByRole('button',{name:/Ghi nhận chứng cứ/}).click();await solve(p,rooms[2].steps[3],true);await p.getByRole('link',{name:'Bắt đầu hành trình',exact:true}).waitFor();assert.equal(await p.evaluate(key=>localStorage.getItem(key),SAVE_KEY),saved);await capture(p,'v3-demo-complete');

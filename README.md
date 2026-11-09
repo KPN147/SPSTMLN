@@ -34,6 +34,8 @@ Không mở `dist/index.html` trực tiếp bằng `file:`. Ảnh, font và âm 
 
 Sai có thể thử lại. Nút **Cần gợi ý?** mở lần lượt: chi tiết cần chú ý → đối chiếu với khái niệm → lời giải có lý do. Không bắt trả lời sai mới được dùng; xem lời giải không tự điền hoặc nộp câu trả lời.
 
+Hoàn thành hội đồng sẽ mở cảnh **Căn phòng thức tỉnh** trong khoảng ba giây: ánh sáng lan lên, vòng năng lượng và hạt sáng xuất hiện theo màu của phòng. Sau đó chọn sang phòng tiếp theo hoặc ở lại khám phá. Có thể bỏ qua, đóng hoặc dùng Escape; tiến độ đã được xác nhận trước cảnh. Giảm chuyển động hiển thị ngay trạng thái sáng và các nút. Quay lại phòng hoặc tải lại không tự phát hiệu ứng lần nữa.
+
 Tab **Hướng dẫn** cạnh **Sổ chung** luôn mở được cẩm nang, mục lục và ví dụ thực hành độc lập. Gợi ý lần đầu chỉ nhắc ngắn; không phải đọc hết hướng dẫn trước khi chơi.
 
 Sổ chung có **Phát hiện**, **Chứng cứ**, **Kiến thức**. Phát hiện ghi rõ bước xuất phát và nơi dùng tiếp, phân biệt **Bối cảnh** với **Căn cứ**. Ghi chú tự do tối đa 1.000 ký tự, không chấm điểm. Kiến thức dài và trang nguồn mở theo nhu cầu.
@@ -98,6 +100,8 @@ npm run build
 Kiểm tra luật, chuyển bản lưu, điều kiện bước, căn cứ–lý do, trợ giúp, điều hướng và demo độc lập. Các bài hồi quy V1/V2 phục vụ kiểm tra dữ liệu cũ; kiểm thử V3 kiểm tra hành trình hiện tại. Kết quả số lượng và giao diện được ghi theo lần chạy thực tế trong [QA_REPORT.md](QA_REPORT.md).
 
 Kiểm tra trình duyệt cần runtime Chromium/Playwright được cấu hình theo script của dự án. Không dùng thời gian chạy tự động hoặc số bài test để tuyên bố hiệu quả học tập. Trước khi phát hành, kiểm tra cả chuột, bàn phím, touch, tải lại, các lựa chọn chuyển bản lưu và màn hình 360/768/1366px.
+
+`npm run check:browser` chơi trọn hành trình và xử lý cảnh phục dựng. `npm run check:celebration` kiểm tra riêng bốn cảnh bừng sáng ở 1366/768/360px, các mốc chuyển động, bỏ qua/đóng/đi tiếp, focus, âm thanh và giảm chuyển động. Báo cáo cùng ảnh nằm trong `output/qa/`.
 
 Build `dist/` lên static hosting; rewrite SPA trong Vercel và `_redirects` được giữ. Kiểm tra tải trực tiếp `/room/3`, `/codex`, `/guide`, `/demo`, cùng luật mở khóa. Chưa xác nhận public URL trong tài liệu này.
 

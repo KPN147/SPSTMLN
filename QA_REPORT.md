@@ -7,7 +7,7 @@ Cập nhật 09/11/2026. Bản mới áp dụng toàn hành trình theo lựa ch
 | Hạng mục | Kết quả |
 |---|---|
 | Lint | PASS |
-| Kiểm thử | PASS: 162 bài trong 12 file; 123 hồi quy bản trước và 39 kiểm tra V3 |
+| Kiểm thử | PASS: 176 bài trong 13 file; gồm hồi quy và kiểm tra V3/cảnh phục dựng |
 | Production build | PASS; tài nguyên cục bộ, không thêm thư viện |
 | Luồng chơi | PASS qua 16 mục tiêu và 4 phần Phòng Lõi bằng giao diện |
 | Hai kết thúc | PASS theo số thư; tải lại giữ kết quả |
@@ -22,6 +22,15 @@ Cập nhật 09/11/2026. Bản mới áp dụng toàn hành trình theo lựa ch
 Số từ được đo bằng văn bản hiển thị trong vùng main trước thao tác đầu tiên tại `/room/1`, cùng kích thước màn hình, tách theo khoảng trắng. Đây là phép đo giao diện đầu phòng, không phải giảm toàn bộ nội dung hoặc số đo mức hiểu.
 
 ## Nội dung và trải nghiệm
+
+### Căn phòng thức tỉnh
+
+- Bốn phòng có cảnh phủ màn hình khi hội đồng vừa được xác nhận đúng: ánh sáng lan, hai vòng năng lượng, tia sáng mềm, hạt sáng và phóng tranh nhẹ trong ba giây. Cảnh kết thúc giữ tranh sáng cùng hai nút đi tiếp/ở lại; không tự chuyển phòng.
+- Có nút bỏ qua, đóng và Escape. Focus trở về tổng kết khi đóng; khóa cuộn được khôi phục. Tiến độ lưu trước cảnh, không ghi lại phần thưởng; tải lại, mở lại phòng hoặc chuyển bản cũ không tự phát cảnh.
+- Dùng âm `chapter` một lần, thay âm thành công thông thường ở bước cuối. Tôn trọng tắt âm và âm lượng. Giảm chuyển động theo cài đặt hoặc hệ thống, chuyển tab và ảnh lỗi đều cho truy cập ngay các nút hoàn tất.
+- 14 kiểm thử mới đạt, gồm cả bốn phòng, nhấp đôi/StrictMode, thời lượng, bỏ qua/đóng/focus, sai lý do, tắt âm, đổi giảm chuyển động giữa cảnh, tab ẩn, ảnh lỗi và tải lại.
+- Kiểm tra Chromium riêng đạt ở 1366/768/360px: 19 ảnh đầu/giữa/cuối, 24 hạt ở máy tính/tablet và 12 trên điện thoại; tranh giữ tỷ lệ, các nút trong màn hình. Không lỗi JavaScript, tài nguyên hoặc CSP trong lượt kiểm tra. Đã xem trực tiếp ảnh desktop/mobile. Báo cáo: `output/qa/celebration-report.json`.
+- Ảnh tiêu biểu: `celebration-1366-light.png`, `celebration-1366-room-1-ready.png`, `celebration-360-room-3-ready.png`, `celebration-reduced-360.png`. Chưa đo cảm xúc hào hứng với người chơi thật; điện thoại hiện được mô phỏng.
 
 - Giữ 4 phòng/16 ID học tập. Mỗi bước có tình huống, khái niệm, nguồn, lựa chọn, phản hồi và phát hiện được dùng tiếp. Quan hệ bối cảnh và chứng minh được tách rõ.
 - Nội dung chính của mỗi bước tối đa 117 từ theo bộ kiểm tra (giới hạn150), khái niệm36–40 từ, phản hồi tối đa35 từ. Diễn giải và lời giải mở theo nhu cầu.
